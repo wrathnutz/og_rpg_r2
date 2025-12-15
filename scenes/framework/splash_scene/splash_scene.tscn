@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://jna1cqp1wshh"]
+
+[ext_resource type="Script" uid="uid://bybxw8pevo5ax" path="res://scenes/framework/splash_scene/splash_scene.gd" id="1_8ecbs"]
+[ext_resource type="Shader" uid="uid://b551gudi87t6p" path="res://assets/shaders/crt.gdshader" id="2_mhmck"]
+[ext_resource type="AudioStream" uid="uid://ctsq3kigu4703" path="res://assets/sounds/Hit 17_3.ogg" id="3_6ok3y"]
+[ext_resource type="Shader" uid="uid://otgmr8iua4gv" path="res://assets/shaders/dissolve.gdshader" id="3_baxab"]
+[ext_resource type="AudioStream" uid="uid://g7511p4c3ldc" path="res://assets/music/Atmosphere Loop 8.ogg" id="4_baxab"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvsgt"]
+shader = ExtResource("2_mhmck")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 5.0
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 1.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0090000004275
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q1td0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j3aqi"]
+noise = SubResource("FastNoiseLite_q1td0")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0xd6"]
+shader = ExtResource("3_baxab")
+shader_parameter/percentage = 0.999999977648
+shader_parameter/burn_texture = SubResource("NoiseTexture2D_j3aqi")
+shader_parameter/layer_1 = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/size_1 = 0.005
+shader_parameter/layer_2 = Color(1, 0, 0, 1)
+shader_parameter/size_2 = 0.005
+shader_parameter/layer_3 = Color(1, 0.5, 0, 1)
+shader_parameter/size_3 = 0.005
+
+[node name="SplashScene" type="Node2D"]
+script = ExtResource("1_8ecbs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_uvsgt")
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -399.0
+offset_top = -300.0
+offset_right = 399.0
+offset_bottom = 298.0
+color = Color(0, 0.5019608, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_i0xd6")
+offset_left = -149.0
+offset_top = -63.0
+offset_right = 149.0
+offset_bottom = 62.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.99215686)
+theme_override_font_sizes/normal_font_size = 80
+text = "N.O.W."
+
+[node name="ChangeTimer" type="Timer" parent="."]
+wait_time = 7.5
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hit173" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ok3y")
+bus = &"SFX"
+
+[node name="AtmosphereLoop8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_baxab")
+bus = &"Music"
+
+[connection signal="timeout" from="ChangeTimer" to="." method="_on_change_timer_timeout"]

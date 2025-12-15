@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://lb7emx0yjx65"]
+
+[ext_resource type="Script" uid="uid://djwy3hp6iemcu" path="res://scenes/entities/systems/scene_manager/scene_manager.gd" id="1_xuh8n"]
+[ext_resource type="Shader" uid="uid://rypevnd2cm1o" path="res://assets/shaders/fade.gdshader" id="2_f2iet"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_to88g"]
+shader = ExtResource("2_f2iet")
+shader_parameter/progress = 0.0
+
+[node name="SceneManager" type="CanvasLayer"]
+script = ExtResource("1_xuh8n")
+
+[node name="FadeRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_to88g")
+custom_minimum_size = Vector2(800, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionTimer" type="Timer" parent="."]

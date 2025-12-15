@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://g7511p4c3ldc"
+path="res://.godot/imported/Atmosphere Loop 8.ogg-e0a51c1b74388abb747a92d614f33937.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Atmosphere Loop 8.ogg"
+dest_files=["res://.godot/imported/Atmosphere Loop 8.ogg-e0a51c1b74388abb747a92d614f33937.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
