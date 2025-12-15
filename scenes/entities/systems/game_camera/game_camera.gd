@@ -14,10 +14,6 @@ func shake() -> void:
 	offset.x = max_offset.x * amount * randf_range(-1,1)
 	offset.y = max_offset.y * amount * randf_range(-1,1)
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_SPACE:
-		add_trauma(0.4)
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
