@@ -1,0 +1,5 @@
+~ start
+...: Open your eyes!
+...: Take a deep breath and return to life!
+do wake_player()
+=> END

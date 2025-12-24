@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d15mgo5aiu1nm"
+path="res://.godot/imported/intro_dialogue_2.dialogue-2c39a1c4529cac5e6a3268d1a7a26c37.tres"
+
+[deps]
+
+source_file="res://scenes/cutscenes/intro_cutscene/intro_dialogue_2.dialogue"
+dest_files=["res://.godot/imported/intro_dialogue_2.dialogue-2c39a1c4529cac5e6a3268d1a7a26c37.tres"]
+
+[params]
+
+defaults=true
