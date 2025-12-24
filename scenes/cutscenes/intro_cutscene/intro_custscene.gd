@@ -3,6 +3,11 @@ extends Node2D
 var dlg_first = preload("res://scenes/cutscenes/intro_cutscene/intro_dialogue_1.dialogue")
 var dlg_second = preload("res://scenes/cutscenes/intro_cutscene/intro_dialogue_2.dialogue")
 
+@onready var sfx_splash : AudioStreamPlayer = $SfxWaterSplash
+@onready var sfx_bubbling : AudioStreamPlayer = $AncientGameUnderwaterLoop
+@onready var sfx_hit : AudioStreamPlayer = $AncientGameGearBagThrowDown7
+@onready var sfx_ping : AudioStreamPlayer = $AncientGameFantasyStarKeyLight
+
 @onready var god_ray : ColorRect = $GodRay
 
 @onready var splash : GPUParticles2D = $splash_particles
@@ -22,11 +27,13 @@ func _ready() -> void:
 
 func _on_scene_start_timer_timeout() -> void:
 	fountain.play("bubbling")
+	sfx_bubbling.play()
 	ray_timer.start()
 	
 
 func _on_ray_start_timer_timeout() -> void:
 	god_ray.visible = true
+	sfx_ping.play()
 	dialogue_timer.start()
 	
 
@@ -37,6 +44,7 @@ func wake_player() -> void:
 	player_sprite.visible = true
 	player_sprite.play("spinning")
 	splash.emitting = true
+	sfx_splash.play()
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property($player_birth_sprite, "global_position", Vector2(0, 10), 1.25).set_trans(Tween.TRANS_QUAD)
@@ -52,5 +60,8 @@ func birth_player() -> void:
 
 func final_dioalogue() -> void:
 	player_sprite.play("idle")
+	sfx_hit.play()
 	DialogueManager.show_example_dialogue_balloon(dlg_second)
+	
+func end_scene() -> void:
 	pass

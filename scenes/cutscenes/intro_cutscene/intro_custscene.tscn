@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://d0uqbc8k65vw"]
+[gd_scene load_steps=48 format=4 uid="uid://d0uqbc8k65vw"]
 
 [ext_resource type="Script" uid="uid://b70hkorsinvuk" path="res://scenes/cutscenes/intro_cutscene/intro_custscene.gd" id="1_77ah1"]
 [ext_resource type="Texture2D" uid="uid://dspsl7yg3jpgw" path="res://assets/sprites/old dungeon sheet.png" id="1_rh3tj"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cgb16vdl6bs00" path="res://assets/sprites/dwarf1_emote.png" id="7_4vqxp"]
 [ext_resource type="Shader" uid="uid://cojjx716nb5e1" path="res://assets/shaders/god_ray.gdshader" id="7_y8wcp"]
 [ext_resource type="Texture2D" uid="uid://c1kaosdwf13ug" path="res://assets/sprites/dwarf1.png" id="8_hp7vw"]
+[ext_resource type="AudioStream" uid="uid://cykyhyivnryri" path="res://assets/sounds/SFX_waterSplash.ogg" id="10_hp7vw"]
+[ext_resource type="AudioStream" uid="uid://c6ypr856vppto" path="res://assets/sounds/Ancient_Game_Underwater_Loop.ogg" id="11_g5eak"]
+[ext_resource type="AudioStream" uid="uid://c7lu26bjrhwd8" path="res://assets/sounds/Ancient_Game_Fantasy_Star_Key_Light.ogg" id="12_f5hhn"]
+[ext_resource type="AudioStream" uid="uid://cg83kd2r4idbs" path="res://assets/sounds/Ancient_Game_Gear_Bag_Throw_Down_7.ogg" id="13_3j21w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_018ko"]
 texture = ExtResource("1_rh3tj")
@@ -400,6 +404,23 @@ one_shot = true
 
 [node name="dialogue_start_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SfxWaterSplash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hp7vw")
+bus = &"SFX"
+
+[node name="AncientGameUnderwaterLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_g5eak")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="AncientGameFantasyStarKeyLight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_f5hhn")
+
+[node name="AncientGameGearBagThrowDown7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_3j21w")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="scene_start_timer" to="." method="_on_scene_start_timer_timeout"]
 [connection signal="timeout" from="ray_start_timer" to="." method="_on_ray_start_timer_timeout"]
