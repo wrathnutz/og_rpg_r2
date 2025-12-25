@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://d0uqbc8k65vw"]
+[gd_scene load_steps=49 format=4 uid="uid://d0uqbc8k65vw"]
 
 [ext_resource type="Script" uid="uid://b70hkorsinvuk" path="res://scenes/cutscenes/intro_cutscene/intro_custscene.gd" id="1_77ah1"]
 [ext_resource type="Texture2D" uid="uid://dspsl7yg3jpgw" path="res://assets/sprites/old dungeon sheet.png" id="1_rh3tj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://up1qjcwrcefu" path="res://scenes/entities/systems/game_camera/game_camera.tscn" id="2_fotb2"]
 [ext_resource type="Texture2D" uid="uid://dmh8kxwm83un4" path="res://assets/sprites/fountain-Sheet.png" id="3_8gpmp"]
 [ext_resource type="Texture2D" uid="uid://0fj8pxku1yx2" path="res://assets/sprites/Castle1-Sheet.png" id="4_8gpmp"]
+[ext_resource type="PackedScene" uid="uid://byp8fub1jws" path="res://scenes/entities/objects/torch/torch.tscn" id="6_7u14k"]
 [ext_resource type="Texture2D" uid="uid://cgb16vdl6bs00" path="res://assets/sprites/dwarf1_emote.png" id="7_4vqxp"]
 [ext_resource type="Shader" uid="uid://cojjx716nb5e1" path="res://assets/shaders/god_ray.gdshader" id="7_y8wcp"]
 [ext_resource type="Texture2D" uid="uid://c1kaosdwf13ug" path="res://assets/sprites/dwarf1.png" id="8_hp7vw"]
@@ -356,9 +357,15 @@ scale = Vector2(1, 1.3918918)
 texture = SubResource("AtlasTexture_3j21w")
 
 [node name="pennant3" type="Sprite2D" parent="props"]
-position = Vector2(0, -69)
+position = Vector2(0, -94)
 scale = Vector2(1, 1.3918918)
 texture = SubResource("AtlasTexture_3j21w")
+
+[node name="Torch" parent="props" instance=ExtResource("6_7u14k")]
+position = Vector2(-224, 2)
+
+[node name="Torch2" parent="props" instance=ExtResource("6_7u14k")]
+position = Vector2(202, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_fotb2")]
 position = Vector2(-2, 109)

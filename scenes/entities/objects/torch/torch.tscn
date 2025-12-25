@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://byp8fub1jws"]
+[gd_scene load_steps=9 format=3 uid="uid://byp8fub1jws"]
 
+[ext_resource type="PackedScene" uid="uid://bgjnjexc86byy" path="res://scenes/entities/objects/fire_light/fire_light.tscn" id="1_gf2ju"]
 [ext_resource type="Texture2D" uid="uid://ua4jl7id8in7" path="res://assets/sprites/town1-tileset.png" id="1_rkgxq"]
 [ext_resource type="Texture2D" uid="uid://cfike7q6el86k" path="res://assets/sprites/fire_texture.png" id="2_gf2ju"]
 [ext_resource type="Texture2D" uid="uid://y8ryq8mog46y" path="res://assets/sprites/smoke_texture.png" id="3_t2u54"]
@@ -22,6 +23,8 @@ _data = [Vector2(0, 0.0025260448), 0.0, 0.0, 0, 0, Vector2(1, 0.50331545), 0.0, 
 point_count = 2
 
 [node name="Torch" type="Node2D"]
+
+[node name="FireLight" parent="." instance=ExtResource("1_gf2ju")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_r75ph")
