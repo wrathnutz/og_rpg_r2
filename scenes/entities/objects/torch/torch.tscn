@@ -15,7 +15,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_7u6nr"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.5362319, 1)
+offsets = PackedFloat32Array(0, 0.046376813, 1)
 colors = PackedColorArray(1, 1, 0.37957397, 0.5, 1, 0.52912915, 0, 0.869, 1, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_iqw0o"]
@@ -29,7 +29,7 @@ point_count = 2
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_r75ph")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="fire_particles" type="CPUParticles2D" parent="."]
 position = Vector2(0, -6)
 amount = 200
 texture = ExtResource("2_gf2ju")
@@ -47,7 +47,7 @@ scale_amount_max = 0.03
 scale_amount_curve = SubResource("Curve_18x0t")
 color_ramp = SubResource("Gradient_7u6nr")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="smoke_particles" type="CPUParticles2D" parent="."]
 modulate = Color(1, 1, 1, 0.05)
 position = Vector2(0, -9)
 amount = 500

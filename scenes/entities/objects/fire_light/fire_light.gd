@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @onready var light = $PointLight2D
@@ -8,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#random_seed = rng.randf_range(0.0, 1.0)
+	random_seed = rng.randf_range(0.0, 1.0)
 	pass # Replace with function body.
 
 
@@ -17,6 +18,8 @@ func _process(delta: float) -> void:
 	time_passed += delta
 	
 	#var sampled_noise: float = noise.noise.get_noise_1d(time_passed + random_seed)
-	var sampled_noise: float = noise.noise.get_noise_1d(time_passed)
+	var sampled_noise: float = noise.noise.get_noise_1d(time_passed + random_seed)
 	sampled_noise = abs(sampled_noise)
 	light.energy = sampled_noise + 0.75
+	#light.energy = (sampled_noise * 10.0) + 0.75
+	#print("noise: " + str((sampled_noise * 10.0)))
