@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-
 const SPEED = 100.0
 var allow_movement : bool = true
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func allow_movement_inputs(allow : bool) -> void:
+	movement_toggle(allow)
 
 func movement_toggle(toggle: bool) -> void:
 	allow_movement = toggle

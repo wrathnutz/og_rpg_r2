@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://c2wr674qasnk4" path="res://scenes/entities/systems/game_camera/game_camera.gd" id="1_vba26"]
 
 [node name="Camera2D" type="Camera2D"]
+process_callback = 0
 script = ExtResource("1_vba26")

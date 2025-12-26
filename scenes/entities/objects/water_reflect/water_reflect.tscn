@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw327barbiwsr"]
+
+[ext_resource type="Shader" uid="uid://cavbh5dut1r5w" path="res://assets/shaders/water_reflect.gdshader" id="1_omvrc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_omvrc"]
+noise_type = 3
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y6ok0"]
+noise = SubResource("FastNoiseLite_omvrc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6ok0"]
+shader = ExtResource("1_omvrc")
+shader_parameter/water_color = Color(0.4862745, 0.6509804, 0.99607843, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_y6ok0")
+shader_parameter/height_scale = 0.30000000447036
+
+[node name="WaterReflect" type="ColorRect"]
+material = SubResource("ShaderMaterial_y6ok0")
+offset_right = 160.0
+offset_bottom = 61.0
