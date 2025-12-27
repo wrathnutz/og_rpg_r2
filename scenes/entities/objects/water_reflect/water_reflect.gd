@@ -13,11 +13,3 @@ func _ready() -> void:
 	new_pos.y = old_pos.y + (self.size.y / 2)
 	CollisionShape.shape.set_size(self.size)
 	StaticBody.global_position = new_pos
-	#CollisionShape.shape.set_position(new_pos)
-	print("setting position: " + str(new_pos))
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
