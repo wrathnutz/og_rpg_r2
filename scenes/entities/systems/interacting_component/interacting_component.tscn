@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://x1xrllr3xy66"]
+
+[ext_resource type="Script" uid="uid://qhtc6e6c1im7" path="res://scenes/entities/systems/interacting_component/interacting_component.gd" id="1_cy734"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qj40g"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qj40g"]
+radius = 18.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_cy734"]
+font_size = 12
+outline_size = 1
+outline_color = Color(3.723037e-05, 3.723037e-05, 3.7230366e-05, 1)
+
+[node name="InteractingComponent" type="Node2D"]
+material = SubResource("CanvasItemMaterial_qj40g")
+script = ExtResource("1_cy734")
+
+[node name="InteractRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource("CircleShape2D_qj40g")
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 10
+offset_left = -52.0
+offset_top = -43.0
+offset_right = 53.0
+offset_bottom = -20.0
+text = "[E] to interact"
+label_settings = SubResource("LabelSettings_cy734")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

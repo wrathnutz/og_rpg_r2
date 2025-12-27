@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://du0nfrpqndlcf"]
+[gd_scene load_steps=32 format=3 uid="uid://du0nfrpqndlcf"]
 
 [ext_resource type="Texture2D" uid="uid://c1kaosdwf13ug" path="res://assets/sprites/dwarf1.png" id="1_2ckt3"]
 [ext_resource type="Script" uid="uid://v7jlyu75dfj8" path="res://scenes/entities/player/character_body_2d.gd" id="2_gmaxw"]
 [ext_resource type="Texture2D" uid="uid://cgb16vdl6bs00" path="res://assets/sprites/dwarf1_emote.png" id="2_u2ehh"]
+[ext_resource type="PackedScene" uid="uid://x1xrllr3xy66" path="res://scenes/entities/systems/interacting_component/interacting_component.tscn" id="4_gmaxw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_awcux"]
 atlas = ExtResource("2_u2ehh")
@@ -229,16 +230,18 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2ehh"]
 radius = 6.0
-height = 24.0
+height = 26.0
 
 [node name="PlayerScene" type="CharacterBody2D"]
 script = ExtResource("2_gmaxw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_8j31j")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_u2ehh")
+
+[node name="InteractingComponent" parent="." instance=ExtResource("4_gmaxw")]
