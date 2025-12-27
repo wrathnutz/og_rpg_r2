@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://up1qjcwrcefu" path="res://scenes/entities/systems/game_camera/game_camera.tscn" id="3_it7bu"]
 [ext_resource type="PackedScene" uid="uid://byp8fub1jws" path="res://scenes/entities/objects/torch/torch.tscn" id="4_kwrvf"]
 [ext_resource type="PackedScene" uid="uid://bw327barbiwsr" path="res://scenes/entities/objects/water_reflect/water_reflect.tscn" id="5_it7bu"]
-[ext_resource type="PackedScene" uid="uid://7hdkpaekg7n2" path="res://scenes/entities/objects/door_wooden/door_wooden.tscn" id="6_mojfe"]
+[ext_resource type="PackedScene" uid="uid://7hdkpaekg7n2" path="res://scenes/entities/objects/door_wooden_ns/door_wooden_ns.tscn" id="6_mojfe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mojfe"]
 texture = ExtResource("1_fab0l")
