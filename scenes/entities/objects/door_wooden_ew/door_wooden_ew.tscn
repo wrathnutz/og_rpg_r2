@@ -40,3 +40,4 @@ shape = SubResource("RectangleShape2D_d1qqd")
 
 [node name="AncientGameWoodenDoorLatch1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_d1qqd")
+bus = &"SFX"
