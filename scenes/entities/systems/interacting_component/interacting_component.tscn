@@ -9,8 +9,7 @@ light_mode = 1
 radius = 18.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_cy734"]
-font_size = 12
-outline_size = 1
+outline_size = 2
 outline_color = Color(3.723037e-05, 3.723037e-05, 3.7230366e-05, 1)
 
 [node name="InteractingComponent" type="Node2D"]
