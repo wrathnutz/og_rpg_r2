@@ -37,4 +37,4 @@ func _physics_process(_delta: float) -> void:
 		if direction_h == 0 and direction_v == 0:
 			animated_sprite.play("idle")
 
-	move_and_slide()
+		move_and_slide()
