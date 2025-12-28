@@ -17,6 +17,7 @@ var dlg_second = preload("res://scenes/cutscenes/intro_cutscene/intro_dialogue_2
 
 @onready var ray_timer : Timer = $ray_start_timer
 @onready var dialogue_timer : Timer = $dialogue_start_timer
+@onready var game_camera: Camera2D = $GameCamera
 
 
 
@@ -26,14 +27,15 @@ func _ready() -> void:
 	pass
 
 func _on_scene_start_timer_timeout() -> void:
-	fountain.play("bubbling")
-	sfx_bubbling.play()
+	god_ray.visible = true
+	sfx_ping.play()
+	await sfx_ping.finished
 	ray_timer.start()
 	
 
 func _on_ray_start_timer_timeout() -> void:
-	god_ray.visible = true
-	sfx_ping.play()
+	fountain.play("bubbling")
+	sfx_bubbling.play()
 	dialogue_timer.start()
 	
 
@@ -41,6 +43,7 @@ func _on_dialogue_start_timer_timeout() -> void:
 	DialogueManager.show_example_dialogue_balloon(dlg_first)
 
 func wake_player() -> void:
+	game_camera.add_trauma(0.5)
 	player_sprite.visible = true
 	player_sprite.play("spinning")
 	splash.emitting = true
@@ -61,7 +64,10 @@ func birth_player() -> void:
 func final_dioalogue() -> void:
 	player_sprite.play("idle")
 	sfx_hit.play()
-	DialogueManager.show_example_dialogue_balloon(dlg_second)
+	var balloon = DialogueManager.show_example_dialogue_balloon(dlg_second)
+	await balloon.tree_exited
+	end_scene()
 	
 func end_scene() -> void:
+	scene_manager.change_scene_fade("res://scenes/maps/dungeons/intro_temple/intro_dungeon.tscn")
 	pass

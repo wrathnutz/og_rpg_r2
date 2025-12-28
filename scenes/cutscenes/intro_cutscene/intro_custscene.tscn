@@ -371,7 +371,7 @@ position = Vector2(-200, 2)
 [node name="Torch2" parent="props" instance=ExtResource("6_7u14k")]
 position = Vector2(200, 0)
 
-[node name="Camera2D" parent="." instance=ExtResource("2_fotb2")]
+[node name="GameCamera" parent="." instance=ExtResource("2_fotb2")]
 position = Vector2(-2, 109)
 
 [node name="player_birth_sprite" type="AnimatedSprite2D" parent="."]
