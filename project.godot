@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SignalBus="*res://scenes/entities/systems/signal_bus/signal_bus.tscn"
 scene_manager="*res://scenes/entities/systems/scene_manager/scene_manager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 

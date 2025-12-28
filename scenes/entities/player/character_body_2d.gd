@@ -5,12 +5,13 @@ var allow_movement : bool = true
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	SignalBus.toggle_player_move.connect(allow_movement_inputs)
+	
 func allow_movement_inputs(allow : bool) -> void:
-	movement_toggle(allow)
-
-func movement_toggle(toggle: bool) -> void:
-	allow_movement = toggle
+	allow_movement = allow
 	animated_sprite.play("idle")
+
 
 
 func _physics_process(_delta: float) -> void:

@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _on_interact():
 	interactable.is_interactable = false
+	SignalBus.player_move_toggle(false)
 	match current_state:
 		door_state.CLOSED:
 			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_closed)
@@ -36,6 +37,7 @@ func _on_interact():
 			await balloon.tree_exited
 	
 	interactable.is_interactable = true
+	SignalBus.player_move_toggle(true)
 
 func open_door() -> void:
 	sfx_door_open.play()
