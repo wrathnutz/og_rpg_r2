@@ -32,11 +32,13 @@ func _on_interact():
 		door_state.MAGIC_LOCK:
 			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_magic)
 			await balloon.tree_exited
+			interactable.is_interactable = true
 		door_state.SEALED:
 			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_sealed)
 			await balloon.tree_exited
+			interactable.is_interactable = true
 	
-	interactable.is_interactable = true
+	
 	SignalBus.player_move_toggle(true)
 
 func open_door() -> void:
