@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs8ae3gcbts32"]
+
+[ext_resource type="Texture2D" uid="uid://dspsl7yg3jpgw" path="res://assets/sprites/old dungeon sheet.png" id="1_7c1on"]
+[ext_resource type="Script" uid="uid://cncdqjrd3hlxv" path="res://scenes/entities/objects/door_wooden_ew/door_wooden_ew.gd" id="2_bepah"]
+[ext_resource type="PackedScene" uid="uid://bcdpchlywxom6" path="res://scenes/entities/systems/interactable/interactable.tscn" id="3_5oom0"]
+[ext_resource type="AudioStream" uid="uid://fbdwfbtluwxt" path="res://assets/sounds/Ancient_Game_Wooden_Door_Latch_1.ogg" id="4_d1qqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bepah"]
+atlas = ExtResource("1_7c1on")
+region = Rect2(196, 33, 24, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1on"]
+size = Vector2(24, 6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7c1on"]
+polygon = PackedVector2Array(-12, 3.0000005, -12, 3.0000005, -12, -2.9999995, -12, -2.9999995, 12, -3.0000005, 12, -3.0000005, 12, 2.9999995, 12, 2.9999995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1qqd"]
+size = Vector2(24, 12)
+
+[node name="DoorWoodenEW" type="Sprite2D"]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_bepah")
+script = ExtResource("2_bepah")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3.5527137e-15, -1.5529405e-22)
+shape = SubResource("RectangleShape2D_7c1on")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_7c1on")
+
+[node name="Interactable" parent="." instance=ExtResource("3_5oom0")]
+interact_name = "open door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_d1qqd")
+
+[node name="AncientGameWoodenDoorLatch1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d1qqd")
