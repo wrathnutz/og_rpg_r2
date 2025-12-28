@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://dorce6474junb"]
+
+[ext_resource type="Texture2D" uid="uid://c8btco7y3yrx2" path="res://assets/sprites/chests.png" id="1_3fl30"]
+[ext_resource type="Script" uid="uid://db1aa8durawd8" path="res://scenes/entities/objects/chest_wooden/chest_wooden.gd" id="1_lghcs"]
+[ext_resource type="PackedScene" uid="uid://bcdpchlywxom6" path="res://scenes/entities/systems/interactable/interactable.tscn" id="2_yu74x"]
+[ext_resource type="AudioStream" uid="uid://clx6606vi36j5" path="res://assets/sounds/Ancient_Game_Wooden_Door_Open_2.ogg" id="4_jsrxu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu74x"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lghcs"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsrxu"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7414f"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2bgp"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m46fy"]
+atlas = ExtResource("1_3fl30")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2eh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu74x")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lghcs")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsrxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7414f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2bgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m46fy")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fl30"]
+size = Vector2(16, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lghcs"]
+radius = 12.0415945
+
+[node name="ChestWooden" type="Node2D"]
+script = ExtResource("1_lghcs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_k2eh8")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_3fl30")
+
+[node name="Interactable" parent="." instance=ExtResource("2_yu74x")]
+interact_name = "open chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_lghcs")
+
+[node name="AncientGameWoodenDoorOpen2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jsrxu")
+bus = &"SFX"
