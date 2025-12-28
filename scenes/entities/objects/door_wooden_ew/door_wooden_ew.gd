@@ -41,7 +41,6 @@ func _on_interact():
 
 func open_door() -> void:
 	sfx_door_open.play()
-	await sfx_door_open.finished
 	self.hide()
 	self.set_process_mode(Node.PROCESS_MODE_DISABLED)
 	
