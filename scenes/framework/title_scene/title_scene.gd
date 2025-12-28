@@ -8,7 +8,9 @@ func _ready() -> void:
 	btnNew.grab_focus()
 
 func _on_btn_new_pressed() -> void:
-	pass
+	btn_sound.play()
+	await btn_sound.finished
+	scene_manager.change_scene_fade("res://scenes/cutscenes/intro_cutscene/intro_custscene.tscn")
 
 
 func _on_btn_quit_pressed() -> void:
