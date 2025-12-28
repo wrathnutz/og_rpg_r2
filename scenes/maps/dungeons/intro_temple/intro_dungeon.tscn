@@ -208,6 +208,7 @@ tile_set = SubResource("TileSet_fg465")
 
 [node name="DoorWooden" parent="." instance=ExtResource("6_mojfe")]
 position = Vector2(-336, -80)
+current_state = 2
 
 [node name="PlayerScene" parent="." instance=ExtResource("2_kwrvf")]
 y_sort_enabled = true

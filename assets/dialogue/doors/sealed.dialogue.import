@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dqrmk3twbf88u"
+path="res://.godot/imported/sealed.dialogue-79c4fdd01c7b2904f55b7a90990d5db9.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/doors/sealed.dialogue"
+dest_files=["res://.godot/imported/sealed.dialogue-79c4fdd01c7b2904f55b7a90990d5db9.tres"]
+
+[params]
+
+defaults=true

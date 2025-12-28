@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dbcu758tdfg00"
+path="res://.godot/imported/magic_locked.dialogue-50a0dfd12a010bffb9e8876cbb5f35d4.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/doors/magic_locked.dialogue"
+dest_files=["res://.godot/imported/magic_locked.dialogue-50a0dfd12a010bffb9e8876cbb5f35d4.tres"]
+
+[params]
+
+defaults=true

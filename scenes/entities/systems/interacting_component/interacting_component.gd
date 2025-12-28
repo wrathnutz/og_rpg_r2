@@ -11,12 +11,11 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and can_interact:
 		if current_interactions:
-			can_interact = false
-			interact_label.hide()
-			
-			await current_interactions[0].interact.call()
-			
-			can_interact = true
+			if current_interactions[0].is_interactable:
+				can_interact = false
+				interact_label.hide()
+				await current_interactions[0].interact.call()
+				can_interact = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

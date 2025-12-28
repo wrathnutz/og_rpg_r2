@@ -1,0 +1,6 @@
+~ start
+...: This door is locked.
+- Use a key to unlock
+	Nathan: You picked the first one.
+- Leave the door alone => END
+=> END
