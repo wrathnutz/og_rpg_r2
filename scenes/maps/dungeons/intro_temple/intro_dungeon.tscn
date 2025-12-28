@@ -215,6 +215,15 @@ position = Vector2(69, 16)
 scale = Vector2(1, 1.3643643)
 current_state = 4
 
+[node name="HallwayDoor" parent="." instance=ExtResource("3_sqeqk")]
+position = Vector2(-101.00001, -208)
+scale = Vector2(1, 1.3497024)
+
+[node name="MagicDoor" parent="." instance=ExtResource("3_sqeqk")]
+position = Vector2(5, -432)
+scale = Vector2(1, 1.3497024)
+current_state = 3
+
 [node name="PlayerScene" parent="." instance=ExtResource("2_kwrvf")]
 y_sort_enabled = true
 position = Vector2(36, 11)
@@ -223,9 +232,11 @@ position = Vector2(36, 11)
 follow_node = NodePath("../PlayerScene")
 
 [node name="Torch" parent="." instance=ExtResource("4_kwrvf")]
+visible = false
 position = Vector2(62, -35)
 
 [node name="Torch2" parent="." instance=ExtResource("4_kwrvf")]
+visible = false
 position = Vector2(62, 72)
 
 [node name="Torch3" parent="." instance=ExtResource("4_kwrvf")]
