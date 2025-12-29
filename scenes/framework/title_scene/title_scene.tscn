@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://f8evf6ueyum2"]
+[gd_scene load_steps=24 format=4 uid="uid://f8evf6ueyum2"]
 
 [ext_resource type="Texture2D" uid="uid://ua4jl7id8in7" path="res://assets/sprites/town1-tileset.png" id="1_5jnld"]
 [ext_resource type="Shader" uid="uid://djwlpjfvufpdv" path="res://assets/shaders/star.gdshader" id="1_5xdbm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cqjw6m6mua626" path="res://assets/sprites/Statue.png" id="5_7pyla"]
 [ext_resource type="AudioStream" uid="uid://bx1hw08fg02ow" path="res://assets/sounds/Button_4.ogg" id="8_la8mn"]
 [ext_resource type="AudioStream" uid="uid://cnje2cyebrnvt" path="res://assets/sounds/Button_Mouseover.ogg" id="9_5bvyh"]
+[ext_resource type="Theme" uid="uid://qh5hw5je4dm8" path="res://assets/themes/menu1_theme.tres" id="10_ij0ok"]
 
 [sub_resource type="Gradient" id="Gradient_5xdbm"]
 
@@ -194,6 +195,7 @@ offset_left = -80.0
 offset_top = 21.0
 offset_right = 77.0
 offset_bottom = 215.0
+theme = ExtResource("10_ij0ok")
 
 [node name="btnNew" type="Button" parent="props/VBoxContainer"]
 layout_mode = 2

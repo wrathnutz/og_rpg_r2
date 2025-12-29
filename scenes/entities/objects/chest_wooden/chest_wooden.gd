@@ -18,4 +18,6 @@ func try_open() -> void:
 	sfx_opening.play()
 	await chest_sprite.animation_finished
 	chest_sprite.play("opened")
+	var dlg_resource = DialogueManager.create_resource_from_text("This chest is empty.")
+	DialogueManager.show_example_dialogue_balloon(dlg_resource)
 	pass
