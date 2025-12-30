@@ -40,6 +40,7 @@ var player_class : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.player_move_toggle(false)
 	name_choice.grab_focus()
 	player_class = class_choice.get_item_text(class_choice.get_selected())
 	_roll_all_stats()
@@ -162,6 +163,7 @@ func _on_btn_save_pressed() -> void:
 	if _input_valid():
 		_save_player_data()
 		creation_complete.emit()
+		SignalBus.player_move_toggle(true)
 		queue_free()
 
 func _on_option_button_item_selected(_index: int) -> void:
