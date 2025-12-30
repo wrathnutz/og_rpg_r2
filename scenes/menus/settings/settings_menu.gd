@@ -57,7 +57,14 @@ func _on_btn_quit_focus_entered() -> void:
 
 func _on_btn_save_pressed() -> void:
 	sfx_button.play()
+	
+	#save all of the audio changes
+	AudioManager.Set_Music_Volume(float(lbl_music.text)/100.0)
+	AudioManager.Set_SFX_Volume(float(lbl_sfx.text)/100.0)
+	AudioManager.Set_Master_Volume(float(lbl_master.text)/100.0)
+	
 	await sfx_button.finished
+	
 	SignalBus.player_exited_menu()
 	self.queue_free()
 
@@ -72,3 +79,13 @@ func _on_btn_cancel_pressed() -> void:
 
 func _on_btn_cancel_focus_entered() -> void:
 	sfx_mouseover.play()
+
+
+func _on_master_h_slider_value_changed(value: float) -> void:
+	lbl_master.text = str(value * 100.0)
+
+func _on_music_h_slider_value_changed(value: float) -> void:
+	lbl_music.text = str(value * 100.0)
+
+func _on_sfx_h_slider_value_changed(value: float) -> void:
+	lbl_sfx.text = str(value * 100.0)
