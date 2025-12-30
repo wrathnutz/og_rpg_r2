@@ -31,4 +31,4 @@ func end_player_creation() -> void:
 	await DialogueManager.dialogue_ended
 	sfx_boom.play()
 	camera_2d.add_trauma(0.5)
-	magic_door.current_state = magic_door.door_state.CLOSED
+	magic_door.current_state = GameUtilities.door_state.CLOSED

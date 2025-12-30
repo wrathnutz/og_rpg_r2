@@ -1,7 +1,5 @@
 extends Sprite2D
 
-enum door_state {OPEN = 0, CLOSED = 1, LOCKED = 2, MAGIC_LOCK = 3, SEALED = 4}
-
 var dlg_closed = preload("res://assets/dialogue/doors/closed.dialogue")
 var dlg_locked = preload("res://assets/dialogue/doors/locked.dialogue")
 var dlg_magic = preload("res://assets/dialogue/doors/magic_locked.dialogue")
@@ -10,7 +8,7 @@ var dlg_sealed = preload("res://assets/dialogue/doors/sealed.dialogue")
 @onready var interactable: Area2D = $Interactable
 @onready var sfx_door_open: AudioStreamPlayer = $AncientGameWoodenDoorLatch1
 
-@export var current_state : door_state = door_state.CLOSED
+@export var current_state : GameUtilities.door_state = GameUtilities.door_state.CLOSED
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,20 +19,20 @@ func _on_interact():
 	interactable.is_interactable = false
 	SignalBus.player_move_toggle(false)
 	match current_state:
-		door_state.CLOSED:
+		GameUtilities.door_state.CLOSED:
 			DialogueManager.show_example_dialogue_balloon(dlg_closed)
 			await DialogueManager.dialogue_ended
 			open_door()
-		door_state.LOCKED:
+		GameUtilities.door_state.LOCKED:
 			DialogueManager.show_example_dialogue_balloon(dlg_locked)
 			await DialogueManager.dialogue_ended
 			open_door()
 			
-		door_state.MAGIC_LOCK:
+		GameUtilities.door_state.MAGIC_LOCK:
 			DialogueManager.show_example_dialogue_balloon(dlg_magic)
 			await DialogueManager.dialogue_ended
 			interactable.is_interactable = true
-		door_state.SEALED:
+		GameUtilities.door_state.SEALED:
 			DialogueManager.show_example_dialogue_balloon(dlg_sealed)
 			await DialogueManager.dialogue_ended
 			interactable.is_interactable = true
