@@ -4,10 +4,12 @@ extends Control
 @onready var sfx_button: AudioStreamPlayer = $Button4
 @onready var sfx_mouseover: AudioStreamPlayer = $ButtonMouseover
 
+@onready var btn_cancel: Button = $PanelContainer/Panel/btnCancel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	game.grab_focus()
+	btn_cancel.grab_focus()
 
 
 func _on_btn_quit_pressed() -> void:
