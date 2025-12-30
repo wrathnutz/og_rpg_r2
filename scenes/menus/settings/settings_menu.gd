@@ -5,10 +5,12 @@ extends Control
 @onready var sfx_mouseover: AudioStreamPlayer = $ButtonMouseover
 
 @onready var btn_cancel: Button = $PanelContainer/Panel/btnCancel
+@onready var lb_version: Label = $PanelContainer/Panel/lbVersion
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	lb_version.text = "Version: " + str(GameState.version_major) + "." + str(GameState.version_minor) + "." + str(GameState.version_build)
 	btn_cancel.grab_focus()
 
 

@@ -25,9 +25,10 @@ theme = ExtResource("1_2k2k4")
 [node name="TabContainer" type="TabContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-current_tab = 0
+current_tab = 2
 
 [node name="Game" type="Control" parent="PanelContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -61,9 +62,86 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Audio" type="Control" parent="PanelContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="lblMaster" type="Label" parent="PanelContainer/TabContainer/Audio"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 50.0
+offset_right = 470.0
+offset_bottom = 80.0
+text = "Master Volume"
+
+[node name="Master_HSlider" type="HSlider" parent="PanelContainer/TabContainer/Audio/lblMaster"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 75.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="lblMasterValue" type="Label" parent="PanelContainer/TabContainer/Audio/lblMaster"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 35.0
+offset_right = 410.0
+offset_bottom = 65.0
+text = "100"
+
+[node name="lblMusic" type="Label" parent="PanelContainer/TabContainer/Audio"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 150.0
+offset_right = 470.0
+offset_bottom = 180.0
+text = "Music Volume"
+
+[node name="Music_HSlider" type="HSlider" parent="PanelContainer/TabContainer/Audio/lblMusic"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 75.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="lblMusicValue" type="Label" parent="PanelContainer/TabContainer/Audio/lblMusic"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 35.0
+offset_right = 410.0
+offset_bottom = 65.0
+text = "100"
+
+[node name="lblSFX" type="Label" parent="PanelContainer/TabContainer/Audio"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 250.0
+offset_right = 490.0
+offset_bottom = 280.0
+text = "Sound Effects Volume"
+
+[node name="SFX_HSlider" type="HSlider" parent="PanelContainer/TabContainer/Audio/lblSFX"]
+layout_mode = 0
+offset_left = -210.0
+offset_top = 30.0
+offset_right = 390.0
+offset_bottom = 75.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="lblSFXValue" type="Label" parent="PanelContainer/TabContainer/Audio/lblSFX"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 35.0
+offset_right = 450.0
+offset_bottom = 65.0
+text = "100"
 
 [node name="Panel" type="Panel" parent="PanelContainer"]
 layout_mode = 2
