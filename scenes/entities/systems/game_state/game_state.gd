@@ -34,8 +34,10 @@ extends Node
 @export var charisma_modifier : int = 0
 @export var charisma_gear_modifier : int = 0
 
-@export_group("Unlocked Titles")
-@export var unlocked_titles : Dictionary = { "none": ""}
+@export_category("Titles")
+
+@export var unlocked_titles : Dictionary[String,String] = { "none": ""}
+@export var titles_list : Dictionary[String,String] = {}
 
 
 # Called when the node enters the scene tree for the first time.
