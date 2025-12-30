@@ -22,21 +22,21 @@ func _on_interact():
 	SignalBus.player_move_toggle(false)
 	match current_state:
 		door_state.CLOSED:
-			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_closed)
-			await balloon.tree_exited
+			DialogueManager.show_example_dialogue_balloon(dlg_closed)
+			await DialogueManager.dialogue_ended
 			open_door()
 		door_state.LOCKED:
-			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_locked)
-			await balloon.tree_exited
+			DialogueManager.show_example_dialogue_balloon(dlg_locked)
+			await DialogueManager.dialogue_ended
 			open_door()
 			
 		door_state.MAGIC_LOCK:
-			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_magic)
-			await balloon.tree_exited
+			DialogueManager.show_example_dialogue_balloon(dlg_magic)
+			await DialogueManager.dialogue_ended
 			interactable.is_interactable = true
 		door_state.SEALED:
-			var balloon = DialogueManager.show_example_dialogue_balloon(dlg_sealed)
-			await balloon.tree_exited
+			DialogueManager.show_example_dialogue_balloon(dlg_sealed)
+			await DialogueManager.dialogue_ended
 			interactable.is_interactable = true
 	
 	

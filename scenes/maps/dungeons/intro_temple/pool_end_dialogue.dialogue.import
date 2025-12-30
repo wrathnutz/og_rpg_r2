@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cvf55kstl2h8i"
+path="res://.godot/imported/pool_end_dialogue.dialogue-ec6607506d21088b7e2dc222a7d14218.tres"
+
+[deps]
+
+source_file="res://scenes/maps/dungeons/intro_temple/pool_end_dialogue.dialogue"
+dest_files=["res://.godot/imported/pool_end_dialogue.dialogue-ec6607506d21088b7e2dc222a7d14218.tres"]
+
+[params]
+
+defaults=true
