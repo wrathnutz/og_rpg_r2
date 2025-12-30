@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("action") and can_interact:
+	if event.is_action_pressed("action_interact") and can_interact:
 		if current_interactions:
 			if current_interactions[0].is_interactable:
 				can_interact = false

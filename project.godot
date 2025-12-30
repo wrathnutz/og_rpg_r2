@@ -13,6 +13,7 @@ config_version=5
 config/name="org_rpg_r2"
 run/main_scene="uid://jna1cqp1wshh"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,6 +30,11 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="E:/Documents/og_rpg movies/og_rpg.avi"
+movie_writer/fps=30
 
 [editor_plugins]
 
