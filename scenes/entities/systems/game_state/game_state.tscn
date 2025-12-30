@@ -4,6 +4,7 @@
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_7swuv")
+version_build = 1
 titles_list = Dictionary[String, String]({
 "awakened": "awakened",
 "none": ""

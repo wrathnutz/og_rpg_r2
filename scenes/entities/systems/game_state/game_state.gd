@@ -1,5 +1,11 @@
 extends Node
 
+@export_category("Game Version") 
+@export_group("Version Numbering")
+@export var version_major : int = 0
+@export var version_minor :int = 0
+@export var version_build : int = 0
+
 @export_category("Player") 
 @export var player_name : String = ""
 @export var player_title : String = "none"
@@ -7,7 +13,7 @@ extends Node
 @export var player_level : int = 1
 @export var player_xp : int = 0
 @export var player_hp : int = 10
-@export var player_mp : int = 0
+@export var player_mp : int = 4
 @export_group("Stats")
 @export_subgroup("Strength")
 @export var strength : int = 12
