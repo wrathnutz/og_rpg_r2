@@ -26,10 +26,9 @@ theme = ExtResource("1_2k2k4")
 [node name="TabContainer" type="TabContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-current_tab = 1
+current_tab = 0
 
 [node name="Game" type="Control" parent="PanelContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -58,6 +57,7 @@ offset_bottom = 395.0
 text = "Quit to  Desktop"
 
 [node name="Keyboard" type="Control" parent="PanelContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

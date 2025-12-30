@@ -1,8 +1,12 @@
 extends Node2D
 
 var creation_menu : PackedScene = preload("uid://cglvoh5mvwsml")
+var settings_menu : PackedScene = preload("uid://dunhuxrgyvtne")
+
 var pool_dialogue = preload("res://scenes/maps/dungeons/intro_temple/pool_start_dialogue.dialogue")
 var door_dialogue = preload("res://scenes/maps/dungeons/intro_temple/pool_end_dialogue.dialogue")
+
+var in_menu : bool = false
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var reflection_pool_trigger: Area2D = $ReflectionPoolTrigger
@@ -13,6 +17,7 @@ var door_dialogue = preload("res://scenes/maps/dungeons/intro_temple/pool_end_di
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	reflection_pool_trigger.interact = start_player_creation
+
 
 func start_player_creation() -> void:
 	reflection_pool_trigger.is_interactable = false
