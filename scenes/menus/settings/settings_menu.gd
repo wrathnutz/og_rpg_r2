@@ -4,6 +4,7 @@ extends Control
 @onready var sfx_button: AudioStreamPlayer = $Button4
 @onready var sfx_mouseover: AudioStreamPlayer = $ButtonMouseover
 
+#preload the input button scene
 @onready var input_button_scene = preload("uid://cs5rpp4ocx3a4")
 @onready var action_list: VBoxContainer = $PanelContainer/TabContainer/Keyboard/ScrollContainer/ActionList
 
@@ -29,6 +30,7 @@ var input_actions : Dictionary = {
 	"move_right" : " Move Right",
 	"action_interact" : "Action",
 	"action_cancel" : "Cancel",
+	"inventory" : "Inventory",
 	"menu" : "Menu / Pause"
 }
 
@@ -150,7 +152,6 @@ func _on_btn_cancel_pressed() -> void:
 
 func _on_btn_cancel_focus_entered() -> void:
 	sfx_mouseover.play()
-
 
 func _on_master_h_slider_value_changed(value: float) -> void:
 	lbl_master.text = str(value * 100.0)
