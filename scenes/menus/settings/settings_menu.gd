@@ -19,12 +19,14 @@ func _on_btn_quit_pressed() -> void:
 func _on_btn_main_menu_pressed() -> void:
 	sfx_button.play()
 	await sfx_button.finished
+	SignalBus.player_exited_menu()
 	scene_manager.change_scene_fade("res://scenes/framework/title_scene/title_scene.tscn")
 
 
 func _on_btn_load_pressed() -> void:
 	sfx_button.play()
 	await sfx_button.finished
+	SignalBus.player_exited_menu()
 
 func _on_btn_load_focus_entered() -> void:
 	sfx_mouseover.play()
@@ -38,6 +40,7 @@ func _on_btn_quit_focus_entered() -> void:
 func _on_btn_save_pressed() -> void:
 	sfx_button.play()
 	await sfx_button.finished
+	SignalBus.player_exited_menu()
 	self.queue_free()
 
 func _on_btn_save_focus_entered() -> void:
@@ -46,6 +49,7 @@ func _on_btn_save_focus_entered() -> void:
 func _on_btn_cancel_pressed() -> void:
 	sfx_button.play()
 	await sfx_button.finished
+	SignalBus.player_exited_menu()
 	self.queue_free()
 
 func _on_btn_cancel_focus_entered() -> void:
