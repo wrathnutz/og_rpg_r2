@@ -65,9 +65,9 @@ func _input_valid()->bool:
 
 func _roll_stat() -> int:
 	
-	var d1 : int = GameState.rng.randi_range(1, 6)
-	var d2 : int = GameState.rng.randi_range(1, 6)
-	var d3 : int = GameState.rng.randi_range(1, 6)
+	var d1 : int = GameUtilities.rng.randi_range(1, 6)
+	var d2 : int = GameUtilities.rng.randi_range(1, 6)
+	var d3 : int = GameUtilities.rng.randi_range(1, 6)
 	
 	return d1 + d2 + d3
 

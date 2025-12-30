@@ -1,16 +1,13 @@
 extends Node
 
-enum proficiency_stat {STRENGTH, DEXTERITY, CONSTITUTION, INTELLIGENCE, WISDOM, CHARISMA}
-enum alignment {good, neutral, evil}
-
-var rng = RandomNumberGenerator.new()
-
 @export_category("Player") 
 @export var player_name : String = ""
 @export var player_title : String = "none"
 @export var player_class : String = ""
-@export var hp : int = 10
-@export var mp : int = 0
+@export var player_level : int = 1
+@export var player_xp : int = 0
+@export var player_hp : int = 10
+@export var player_mp : int = 0
 @export_group("Stats")
 @export_subgroup("Strength")
 @export var strength : int = 12
