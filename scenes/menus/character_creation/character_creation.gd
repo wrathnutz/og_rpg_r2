@@ -134,6 +134,22 @@ func _get_prefix(value: int)->String:
 		return "+" + str(value)
 	return str(value)
 
+func _save_player_data() -> void:
+	#Update the gamestate with the players choices
+	GameState.player_name = name_choice.text
+	GameState.player_class = class_choice.get_item_text(class_choice.get_selected())
+	GameState.strength = Strength
+	GameState.strength_modifier = Strength_Mod
+	GameState.dexterity = Dexterity
+	GameState.dexterity_modifier = Dexterity_Mod
+	GameState.constitution = Constitution
+	GameState.constitution_modifier = Constitution_Mod
+	GameState.intelligence = Intelligence
+	GameState.intelligence_modifier = Intelligence_Mod
+	GameState.wisdom = Wisdom
+	GameState.wisdom_modifier = Wisdom_Mod
+	GameState.charisma = Charisma
+	GameState.charisma_modifier = Charisma_Mod
 
 func _on_btn_reroll_pressed() -> void:
 	sfx_dice.play()
@@ -144,6 +160,7 @@ func _on_btn_reroll_pressed() -> void:
 func _on_btn_save_pressed() -> void:
 	sfx_button.play()
 	if _input_valid():
+		_save_player_data()
 		creation_complete.emit()
 		queue_free()
 
