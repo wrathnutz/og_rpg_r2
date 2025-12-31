@@ -1,0 +1,141 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjakqlicx02xr"]
+
+[ext_resource type="Theme" uid="uid://qh5hw5je4dm8" path="res://assets/themes/menu1_theme.tres" id="1_fmnxq"]
+[ext_resource type="Script" uid="uid://ckifad0iwpw2r" path="res://scenes/menus/inventory/inventory_menu.gd" id="1_lrm6r"]
+[ext_resource type="Texture2D" uid="uid://bqxmdwldkg65o" path="res://assets/sprites/equipement sillhouette.png" id="3_0qyew"]
+
+[node name="InventoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lrm6r")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+custom_minimum_size = Vector2(800, 550)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_fmnxq")
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 540.0
+grow_horizontal = 2
+current_tab = 0
+
+[node name="Inventory" type="Control" parent="PanelContainer/Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Panel/TabContainer/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel_Inventory" type="Panel" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="lblLight" type="Label" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 13.0
+offset_right = 53.0
+offset_bottom = 41.0
+text = "Light"
+
+[node name="opt_btn_light" type="OptionButton" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 10.0
+offset_right = 218.0
+offset_bottom = 44.0
+selected = 0
+item_count = 1
+popup/item_0/text = "torch"
+popup/item_0/id = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 58.0
+offset_right = 389.0
+offset_bottom = 368.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 379.0
+offset_right = 389.0
+offset_bottom = 484.0
+text = "Item description
+In text box format"
+
+[node name="Panel_Equipped" type="Panel" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped"]
+self_modulate = Color(1, 1, 1, 0.75000006)
+position = Vector2(203.50006, 270.99997)
+scale = Vector2(1.5117189, 1.6953124)
+texture = ExtResource("3_0qyew")
+
+[node name="lblEquipped" type="Label" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 5.0
+offset_right = 245.0
+offset_bottom = 37.0
+text = "Equipped"
+
+[node name="Label" type="Label" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 455.0
+offset_right = 140.0
+offset_bottom = 483.0
+text = "Defense: 999"
+
+[node name="Spells" type="Control" parent="PanelContainer/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Stats" type="Control" parent="PanelContainer/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Achievements" type="Control" parent="PanelContainer/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Panel2" type="Panel" parent="PanelContainer"]
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="btnClose" type="Button" parent="PanelContainer/Panel2"]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 8.0
+offset_right = 791.0
+offset_bottom = 41.0
+text = "Close"
