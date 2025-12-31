@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjakqlicx02xr"]
+[gd_scene load_steps=8 format=3 uid="uid://cjakqlicx02xr"]
 
 [ext_resource type="Theme" uid="uid://qh5hw5je4dm8" path="res://assets/themes/menu1_theme.tres" id="1_fmnxq"]
 [ext_resource type="Script" uid="uid://ckifad0iwpw2r" path="res://scenes/menus/inventory/inventory_menu.gd" id="1_lrm6r"]
 [ext_resource type="Texture2D" uid="uid://bqxmdwldkg65o" path="res://assets/sprites/equipement sillhouette.png" id="3_0qyew"]
+[ext_resource type="PackedScene" uid="uid://bephm2c7083cv" path="res://scenes/menus/inventory/inventory_slot.tscn" id="3_8birm"]
+[ext_resource type="AudioStream" uid="uid://bx1hw08fg02ow" path="res://assets/sounds/Button_4.ogg" id="4_vp53h"]
+[ext_resource type="AudioStream" uid="uid://cnje2cyebrnvt" path="res://assets/sounds/Button_Mouseover.ogg" id="5_8birm"]
+[ext_resource type="PackedScene" uid="uid://pbgjlbdfkrum" path="res://scenes/menus/inventory/equipment_slot.tscn" id="5_mhum1"]
 
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
@@ -68,19 +72,49 @@ popup/item_0/id = 0
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 18.0
 offset_top = 58.0
-offset_right = 389.0
+offset_right = 376.0
 offset_bottom = 368.0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
-columns = 10
+columns = 8
+
+[node name="InventorySlot" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory/GridContainer" instance=ExtResource("3_8birm")]
+layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 16.0
 offset_top = 379.0
-offset_right = 389.0
+offset_right = 377.0
 offset_bottom = 484.0
 text = "Item description
 In text box format"
@@ -112,6 +146,78 @@ offset_right = 140.0
 offset_bottom = 483.0
 text = "Defense: 999"
 
+[node name="SlotHead" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 90.0
+offset_right = 215.0
+offset_bottom = 130.0
+slot_name = "Head"
+
+[node name="SlotNeck" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 150.0
+offset_right = 215.0
+offset_bottom = 190.0
+slot_name = "Neck"
+
+[node name="SlotChest" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 215.0
+offset_right = 215.0
+offset_bottom = 255.0
+slot_name = "Chest"
+
+[node name="SlotLegs" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 320.0
+offset_right = 215.0
+offset_bottom = 360.0
+slot_name = "Legs"
+
+[node name="SlotFeet" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 400.0
+offset_right = 215.0
+offset_bottom = 440.0
+slot_name = "Feet"
+
+[node name="SlotMainHand" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 275.0
+offset_right = 100.0
+offset_bottom = 315.0
+slot_name = "Main Hand"
+
+[node name="SlotOffHand" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 275.0
+offset_right = 340.0
+offset_bottom = 315.0
+slot_name = "Off Hand"
+
+[node name="SlotRing" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 100.0
+offset_bottom = 160.0
+slot_name = "Ring"
+
+[node name="SlotTrinket" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Equipped" instance=ExtResource("5_mhum1")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 120.0
+offset_right = 340.0
+offset_bottom = 160.0
+slot_name = "Trinket"
+
 [node name="Spells" type="Control" parent="PanelContainer/Panel/TabContainer"]
 visible = false
 layout_mode = 2
@@ -139,3 +245,14 @@ offset_top = 8.0
 offset_right = 791.0
 offset_bottom = 41.0
 text = "Close"
+
+[node name="Button4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vp53h")
+bus = &"SFX"
+
+[node name="ButtonMouseover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8birm")
+bus = &"SFX"
+
+[connection signal="focus_entered" from="PanelContainer/Panel2/btnClose" to="." method="_on_btn_close_focus_entered"]
+[connection signal="pressed" from="PanelContainer/Panel2/btnClose" to="." method="_on_btn_close_pressed"]

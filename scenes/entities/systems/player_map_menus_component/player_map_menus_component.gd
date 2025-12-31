@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var menu_scene : PackedScene = preload("uid://dunhuxrgyvtne")
-#@onready var inv_scene : PackedScene = preload()
+@onready var inv_scene : PackedScene = preload("uid://cjakqlicx02xr")
 @onready var gui_canvas : CanvasLayer = $CanvasLayer
 
 signal menu_opened
@@ -28,11 +28,13 @@ func _input(event: InputEvent) -> void:
 		menu_closed.emit()
 		SignalBus.player_move_toggle(true)
 		
-	#if event.is_action("inventory") and !in_menu:
-	#	in_menu = true
-	#	menu_opened.emit()
-	#	var inv_menu_instance = inv_scene.instantiate()
-	#	gui_canvas.add_child(inv_menu_instance)
-	#	await inv_menu_instance.menu_closed
-	#	in_menu = false
-	#	menu_closed.emit()
+	if event.is_action("inventory") and !in_menu:
+		in_menu = true
+		menu_opened.emit()
+		SignalBus.player_move_toggle(false)
+		var inv_menu_instance = inv_scene.instantiate()
+		gui_canvas.add_child(inv_menu_instance)
+		await inv_menu_instance.tree_exited
+		in_menu = false
+		menu_closed.emit()
+		SignalBus.player_move_toggle(true)
