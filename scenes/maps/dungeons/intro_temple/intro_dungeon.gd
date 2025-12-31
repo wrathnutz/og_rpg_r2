@@ -32,7 +32,7 @@ func start_player_creation() -> void:
 	end_player_creation()
 
 func end_player_creation() -> void:
-	DialogueManager.show_example_dialogue_balloon(pool_dialogue)
+	DialogueManager.show_example_dialogue_balloon(door_dialogue)
 	await DialogueManager.dialogue_ended
 	sfx_boom.play()
 	camera_2d.add_trauma(0.5)

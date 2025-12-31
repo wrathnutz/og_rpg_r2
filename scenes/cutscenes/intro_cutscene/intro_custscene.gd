@@ -64,7 +64,7 @@ func birth_player() -> void:
 func final_dioalogue() -> void:
 	player_sprite.play("idle")
 	sfx_hit.play()
-	var balloon = DialogueManager.show_example_dialogue_balloon(dlg_second)
+	DialogueManager.show_example_dialogue_balloon(dlg_second)
 	await DialogueManager.dialogue_ended
 	end_scene()
 	

@@ -32,9 +32,10 @@ anchor_right = 1.0
 offset_top = 10.0
 offset_bottom = 540.0
 grow_horizontal = 2
-current_tab = 0
+current_tab = 2
 
 [node name="Inventory" type="Control" parent="PanelContainer/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -224,9 +225,168 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Stats" type="Control" parent="PanelContainer/Panel/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Panel/TabContainer/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelInfo" type="Panel" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="lblName" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelInfo"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Sample_Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RTLblTitle" type="RichTextLabel" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelInfo"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 44.0
+offset_bottom = 84.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[pulse][color=dark_goldenrod]The Owner[/color][/pulse]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lblClass" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelInfo"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "Class"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelStats" type="Panel" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer"]
+custom_minimum_size = Vector2(0, 330)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="lblLevel" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats"]
+layout_mode = 0
+offset_right = 794.0
+offset_bottom = 28.0
+text = "Level: 00"
+
+[node name="lblExperience" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats"]
+layout_mode = 0
+offset_right = 794.0
+offset_bottom = 28.0
+text = "Experience: 000,000,000"
+horizontal_alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 330.0
+grow_horizontal = 2
+columns = 7
+
+[node name="Control" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblStr" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Strength"
+
+[node name="lblStrValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control2" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblDex" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Dexterity"
+
+[node name="lblDexValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control3" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control4" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblCon" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Constitution"
+
+[node name="lblConValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control5" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblInt" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Intelligence"
+
+[node name="lblIntValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control6" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control7" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblWis" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Wisdom"
+
+[node name="lblWisValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control8" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblChar" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "Charisma"
+
+[node name="lblCharValue" type="Label" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Control9" type="Control" parent="PanelContainer/Panel/TabContainer/Stats/PanelContainer/PanelStats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Achievements" type="Control" parent="PanelContainer/Panel/TabContainer"]
 visible = false
