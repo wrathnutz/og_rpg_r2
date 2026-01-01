@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="armor" load_steps=4 format=3 uid="uid://c70rigtcliwqf"]
+
+[ext_resource type="Texture2D" uid="uid://du7spsm54la7h" path="res://assets/sprites/armor1.png" id="1_hiqf7"]
+[ext_resource type="Script" uid="uid://dnh2mj7mrk16u" path="res://scenes/entities/systems/armor/armor.gd" id="1_wfpwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4dbx"]
+atlas = ExtResource("1_hiqf7")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_wfpwe")
+slot_type = 4
+proficiency = 1
+defense_base_value = 2.5
+inventory_texture = SubResource("AtlasTexture_a4dbx")
+count = 1
+name = "sandals"
+description = "sandals
+[color=blue]Base Armor:[/color] 2.5
+A pair of leather thong sandals. They are just barely better than wearing nothing. And you wouldn't want your luscious feet to get hurt."
+metadata/_custom_type_script = "uid://dnh2mj7mrk16u"

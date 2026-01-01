@@ -57,10 +57,10 @@ var current_light : int = -1
 @export var player_equipment: Dictionary = {
 	"head" : null,
 	"neck" : null,
-	"chest" : null,
+	"chest" : preload("uid://bx4rvmfp1d6ln"),
 	"waist" : null,
-	"legs" : null,
-	"feet" : null,
+	"legs" : preload("uid://ddc70e5mljxq1"),
+	"feet" : preload("uid://c70rigtcliwqf"),
 	"offhand" : null,
 	"mainhand" : null,
 	"ring" : null,

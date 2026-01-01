@@ -75,7 +75,7 @@ layout_mode = 0
 offset_left = 18.0
 offset_top = 58.0
 offset_right = 376.0
-offset_bottom = 368.0
+offset_bottom = 263.0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 8
@@ -113,9 +113,10 @@ layout_mode = 2
 [node name="lblItemDescription" type="RichTextLabel" parent="PanelContainer/Panel/TabContainer/Inventory/PanelContainer/Panel_Inventory"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 379.0
+offset_top = 289.0
 offset_right = 377.0
 offset_bottom = 484.0
+bbcode_enabled = true
 text = "Item description
 In text box format"
 

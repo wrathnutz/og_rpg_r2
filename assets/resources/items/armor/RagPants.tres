@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="armor" load_steps=4 format=3 uid="uid://ddc70e5mljxq1"]
+
+[ext_resource type="Script" uid="uid://dnh2mj7mrk16u" path="res://scenes/entities/systems/armor/armor.gd" id="1_3gusn"]
+[ext_resource type="Texture2D" uid="uid://du7spsm54la7h" path="res://assets/sprites/armor1.png" id="1_3iko2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg8mk"]
+atlas = ExtResource("1_3iko2")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_3gusn")
+slot_type = 3
+proficiency = 1
+defense_base_value = 2.5
+inventory_texture = SubResource("AtlasTexture_xg8mk")
+count = 1
+name = "rag pants"
+description = "rag pants
+[color=blue]Base Armor:[/color] 2.5
+These rags won't do much to keep you safe. They are just barely better than wearing nothing. You feel a slight breeze in your nether regions."
+type = 3
+metadata/_custom_type_script = "uid://dnh2mj7mrk16u"
