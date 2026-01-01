@@ -4,7 +4,7 @@ extends Node
 @export_group("Version Numbering")
 @export var version_major : int = 0
 @export var version_minor :int = 0
-@export var version_build : int = 0
+@export var version_build : int = 10
 
 @export_category("Player") 
 @export var player_name : String = ""
@@ -45,6 +45,30 @@ extends Node
 @export var unlocked_titles : Dictionary[String,String] = { "none": ""}
 @export var titles_list : Dictionary[String,String] = {}
 
+@export_category("Inventory")
+@export var max_inventory : int = 8
+@export var player_inventory : Array[InventoryData] = []
+
+@export_category("Inventory")
+var current_light : int = -1
+@export var player_lights : Array[String] = []
+
+@export_category("Equipment")
+@export var player_equipment: Dictionary = {
+	"head" : null,
+	"neck" : null,
+	"chest" : null,
+	"waist" : null,
+	"legs" : null,
+	"feet" : null,
+	"offhand" : null,
+	"mainhand" : null,
+	"ring" : null,
+	"trinket" : null
+}
+
+var player_defense : float = 0.0
+var player_attack : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
