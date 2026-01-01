@@ -41,3 +41,10 @@ text = "Slot Name"
 horizontal_alignment = 1
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+oversampling_override = 1.0
+visible = true
+item_count = 2
+item_0/text = "Unequip"
+item_0/id = 0
+item_1/text = "Drop"
+item_1/id = 1

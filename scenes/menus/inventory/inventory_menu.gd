@@ -43,6 +43,8 @@ extends Control
 func _ready() -> void:
 	btn_close.grab_focus()
 	
+	GameUtilities.update_defense()
+	
 	#setup the player stats page
 	lbl_name.text = GameState.player_name
 	rt_lbl_title.text = GameState.unlocked_titles.get(GameState.player_title)
@@ -183,12 +185,12 @@ func _handle_equipment_action(action: String, strSlot : String) -> void:
 	#print("player_menu handling equipment_action: " + action + ", slot: " + strSlot)
 	match action:
 		"Unequip":
-			if GameState.unequip(strSlot):
+			if GameUtilities.unequip(strSlot):
 				#We need to draw the equipment
 				_set_equipment_slots()
 				_set_inv_slots()
 		"Drop":
-			GameState.drop_equipment(strSlot)
+			GameUtilities.drop_equipment(strSlot)
 			_set_equipment_slots()
 	_update_defense_label()
 

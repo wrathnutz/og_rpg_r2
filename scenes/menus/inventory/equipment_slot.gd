@@ -44,7 +44,7 @@ func item_unfocused() -> void:
 
 func _set_popup()-> void:
 	#set the menu position
-	equipment_popup.position.x = int(self.global_position.x)
+	equipment_popup.position.x = int(self.global_position.x + (600 - ((float(equipment_popup.size.y)/2.0) - 15)))
 	equipment_popup.position.y = int(self.global_position.y - ((float(equipment_popup.size.y)/2.0) + 15.0))
 	equipment_popup.id_pressed.connect(_popup_pressed.bind())
 

@@ -18,4 +18,5 @@ name = "sandals"
 description = "sandals
 [color=blue]Base Armor:[/color] 2.5
 A pair of leather thong sandals. They are just barely better than wearing nothing. And you wouldn't want your luscious feet to get hurt."
+type = 3
 metadata/_custom_type_script = "uid://dnh2mj7mrk16u"

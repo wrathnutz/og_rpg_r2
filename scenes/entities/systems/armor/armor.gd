@@ -17,7 +17,7 @@ func _on_unequip() -> void:
 	pass
 
 func _update_defense() -> void:
-	var proficiency_value : int = GameState.get_proficiency_value(proficiency)
+	var proficiency_value : int = GameUtilities.get_proficiency_value(proficiency)
 	var percentage_bonus : float = 0.0
 	
 	# -25% at 1 and +25% at 20

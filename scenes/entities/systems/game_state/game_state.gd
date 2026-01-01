@@ -62,7 +62,7 @@ var current_light : int = -1
 	"legs" : preload("uid://ddc70e5mljxq1"),
 	"feet" : preload("uid://c70rigtcliwqf"),
 	"offhand" : null,
-	"mainhand" : null,
+	"mainhand" : preload("uid://i3f0hd8tsdqw"),
 	"ring" : null,
 	"trinket" : null
 }

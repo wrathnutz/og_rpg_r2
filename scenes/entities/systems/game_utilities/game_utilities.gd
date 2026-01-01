@@ -21,15 +21,15 @@ func get_proficiency_value(proficiency: proficiency_stat) -> int:
 		proficiency_stat.STRENGTH:
 			return GameState.player_data.strength
 		proficiency_stat.DEXTERITY:
-			return GameState.player_data.dexterity
+			return GameState.dexterity
 		proficiency_stat.CONSTITUTION:
-			return GameState.player_data.constitution
+			return GameState.constitution
 		proficiency_stat.INTELLIGENCE:
-			return GameState.player_data.intelligence
+			return GameState.intelligence
 		proficiency_stat.WISDOM:
-			return GameState.player_data.wisdom
+			return GameState.wisdom
 		proficiency_stat.CHARISMA:
-			return GameState.player_data.charisma
+			return GameState.charisma
 		_:
 			return GameState.player_data.strength
 
