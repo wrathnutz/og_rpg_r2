@@ -11,6 +11,8 @@ enum item_type {RESOURCE, CONSUMABLE, WEAPON, ARMOR, QUEST_ITEM}
 enum item_quality {POOR, NORMAL, GOOD, EXQUISITE}
 
 enum armor_slot {HEAD, NECK, CHEST, LEGS, FEET, RING, TRINKET}
+enum weapon_slot {MAINHAND, OFFHAND}
+
 
 var rng = RandomNumberGenerator.new()
 
