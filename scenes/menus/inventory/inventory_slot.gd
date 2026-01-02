@@ -61,9 +61,8 @@ func _set_popup()-> void:
 			inv_popup.add_item("Drop")
 	#set the menu position
 	inv_popup.position.x = int(self.global_position.x * inventory_slot_index)
-	#inv_popup.position.y = int(self.global_position.y - ((float(inv_popup.size.y)/2.0) + 15.0) )
 	@warning_ignore("integer_division")
-	inv_popup.position.y = 45 + int(int(inventory_slot_index/10) * 45)
+	inv_popup.position.y = int(int(inventory_slot_index/10) * 45)
 	
 	inv_popup.id_pressed.connect(_popup_pressed.bind())
 
