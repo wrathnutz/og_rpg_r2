@@ -48,15 +48,15 @@ func item_unfocused() -> void:
 
 func _set_popup()-> void:
 	match inventory_data.type:
-		inventory_data.item_type.RESOURCE:
+		GameUtilities.item_type.RESOURCE:
 			inv_popup.add_item("Drop")
-		inventory_data.item_type.CONSUMABLE:
+		GameUtilities.item_type.CONSUMABLE:
 			inv_popup.add_item("Use")
 			inv_popup.add_item("Drop")
-		inventory_data.item_type.WEAPON:
+		GameUtilities.item_type.WEAPON:
 			inv_popup.add_item("Equip")
 			inv_popup.add_item("Drop")
-		inventory_data.item_type.ARMOR:
+		GameUtilities.item_type.ARMOR:
 			inv_popup.add_item("Equip")
 			inv_popup.add_item("Drop")
 	#set the menu position

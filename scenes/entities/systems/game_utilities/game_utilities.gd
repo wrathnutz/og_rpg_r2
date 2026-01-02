@@ -7,12 +7,11 @@ enum door_state {OPEN = 0, CLOSED = 1, LOCKED = 2, MAGIC_LOCK = 3, SEALED = 4}
 
 enum chest_state{OPENED=0, CLOSED=1, OPENING=3}
 
-enum item_type {RESOURCE, CONSUMABLE, WEAPON, ARMOR, QUEST_ITEM}
-enum item_quality {POOR, NORMAL, GOOD, EXQUISITE}
+enum item_type {RESOURCE=0, CONSUMABLE=1, WEAPON=2, ARMOR=3, QUEST_ITEM=4}
+enum item_quality {POOR=0, NORMAL=1, GOOD=2, EXQUISITE=3}
 
 enum armor_slot {HEAD, NECK, CHEST, LEGS, FEET, RING, TRINKET}
 enum weapon_slot {MAINHAND, OFFHAND}
-
 
 var rng = RandomNumberGenerator.new()
 
@@ -42,6 +41,7 @@ func update_defense()->void:
 
 
 func update_attack()->void:
+	print("do something")
 	pass
 
 func drop_equipment(slot_type : String):
@@ -52,6 +52,7 @@ func drop_equipment(slot_type : String):
 func unequip(slot_type : String) -> bool:
 	var retval : bool = false
 	if AddtoInventory(GameState.player_equipment.get(slot_type)):
+		#If we successfully added the gear to the inventory, set the slot equal to null
 		GameState.player_equipment.set(slot_type, null)
 		update_defense()
 		retval = true

@@ -17,4 +17,5 @@ description = "unarmed
 [color=red]Max Damage:[/color] 4
 These are your bare hands Let's hope you know how to use them!"
 type = 2
+quality = null
 metadata/_custom_type_script = "uid://6dutetkhwyu1"

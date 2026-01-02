@@ -23,14 +23,15 @@ func _ready() -> void:
 
 func set_inv_data(value : InventoryData) -> void:
 	inventory_data = value
+	#if the data is null just jump out
 	if inventory_data == null:
 		fg_texture.texture = null
 		return
-	
+	#update the data if it is not null
 	inventory_data.inventory_texture = value.inventory_texture
 	fg_texture.texture = inventory_data.inventory_texture
-	
-	
+
+
 func item_focused() -> void:
 	if inventory_data != null:
 		update_description.emit(inventory_data.description)

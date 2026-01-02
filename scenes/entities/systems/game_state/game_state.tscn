@@ -9,3 +9,4 @@ titles_list = Dictionary[String, String]({
 "awakened": "awakened",
 "none": ""
 })
+player_lights = Array[String](["none"])

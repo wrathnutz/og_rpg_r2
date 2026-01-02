@@ -62,7 +62,7 @@ func _ready() -> void:
 	#init the player inventory
 	_update_item_description("")
 	_clear_inv_slots()
-	_set_inv_slots()
+	_update_inv_slots()
 	
 	# init the player lights
 	_init_lights()
@@ -88,7 +88,7 @@ func _ready() -> void:
 	slot_trinket.equipment_action.connect(_handle_equipment_action)
 	slot_ring.equipment_action.connect(_handle_equipment_action)
 	
-	_set_equipment_slots()
+	_update_equipment_slots()
 	
 	_update_defense_label()
 
@@ -100,7 +100,7 @@ func _clear_inv_slots() -> void:
 	for item in gc_inv.get_children():
 		item.queue_free()
 
-func _set_inv_slots() -> void:
+func _update_inv_slots() -> void:
 	#clear inventory slots first
 	if gc_inv.get_child_count() > 0:
 		var children = gc_inv.get_children()
@@ -154,13 +154,13 @@ func _handle_inventory_action(action: String, slot_index:  int) -> void:
 				#handle the weapons
 				pass
 			
-			GameState.equip(slot_name, slot_index)
+			GameUtilities.equip(slot_name, slot_index)
 	#We need to draw the inventory
-	_set_inv_slots()
-	_set_equipment_slots()
+	_update_inv_slots()
+	_update_equipment_slots()
 	_update_defense_label()
 
-func _set_equipment_slots() -> void:
+func _update_equipment_slots() -> void:
 	slot_head.set_inv_data(GameState.player_equipment.get("head"))
 	slot_chest.set_inv_data(GameState.player_equipment.get("chest"))
 	slot_legs.set_inv_data(GameState.player_equipment.get("legs"))
@@ -182,17 +182,41 @@ func _init_lights() -> void:
 		op_light.select(GameState.current_light)
 
 func _handle_equipment_action(action: String, strSlot : String) -> void:
-	#print("player_menu handling equipment_action: " + action + ", slot: " + strSlot)
+	
+	var strPlayerSlot : String = ""
+	match strSlot:
+		"Head":
+			strPlayerSlot = "head"
+		"Neck":
+			strPlayerSlot = "neck"
+		"Chest":
+			strPlayerSlot = "chest"
+		"Legs":
+			strPlayerSlot = "legs"
+		"Feet":
+			strPlayerSlot = "feet"
+		"Ring":
+			strPlayerSlot = "ring"
+		"Trinke":
+			strPlayerSlot = "trinket"
+		"Main Hand":
+			strPlayerSlot = "mainhand"
+		"Off Hand":
+			strPlayerSlot = "offhand"
+	
+	
 	match action:
 		"Unequip":
-			if GameUtilities.unequip(strSlot):
+			if GameUtilities.unequip(strPlayerSlot):
 				#We need to draw the equipment
-				_set_equipment_slots()
-				_set_inv_slots()
+				_update_equipment_slots()
+				_update_inv_slots()
 		"Drop":
-			GameUtilities.drop_equipment(strSlot)
-			_set_equipment_slots()
+			print("dropping")
+			GameUtilities.drop_equipment(strPlayerSlot)
+			_update_equipment_slots()
 	_update_defense_label()
+	_update_item_description("")
 
 
 func _on_btn_close_pressed() -> void:

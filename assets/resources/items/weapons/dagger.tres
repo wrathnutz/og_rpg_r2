@@ -20,4 +20,5 @@ description = "dagger
 Just a simple dagger. You stab things with it. Don't hold it by the sharp end."
 value = 5
 type = 2
+quality = 1
 metadata/_custom_type_script = "uid://6dutetkhwyu1"

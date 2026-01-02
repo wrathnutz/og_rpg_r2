@@ -19,4 +19,5 @@ description = "rag tunic
 [color=blue]Base Armor:[/color] 2.5
 These rags won't do much to keep you safe. They are just barely better than wearing nothing."
 type = 3
+quality = null
 metadata/_custom_type_script = "uid://dnh2mj7mrk16u"

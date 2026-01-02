@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="HealthPotion" load_steps=4 format=3 uid="uid://do41yvl0u22ra"]
+
+[ext_resource type="Texture2D" uid="uid://dsb2jvslv8j7e" path="res://assets/sprites/Potions_1x.png" id="1_04tv7"]
+[ext_resource type="Script" uid="uid://b6j86n27xb2my" path="res://scenes/entities/systems/health_potion/health_potion.gd" id="1_ok8cc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8otr5"]
+atlas = ExtResource("1_04tv7")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_ok8cc")
+heal_amount = 10
+inventory_texture = SubResource("AtlasTexture_8otr5")
+count = 1
+max_stack = 99
+name = "small  health potion"
+description = "small health potion
+A small magical draft that can some how heal your wounds.  This poition doesn't taste very good."
+value = 15
+type = 1
+quality = 1
+metadata/_custom_type_script = "uid://b6j86n27xb2my"
