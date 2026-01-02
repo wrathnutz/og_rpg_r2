@@ -183,27 +183,7 @@ func _init_lights() -> void:
 
 func _handle_equipment_action(action: String, strSlot : String) -> void:
 	
-	var strPlayerSlot : String = ""
-	match strSlot:
-		"Head":
-			strPlayerSlot = "head"
-		"Neck":
-			strPlayerSlot = "neck"
-		"Chest":
-			strPlayerSlot = "chest"
-		"Legs":
-			strPlayerSlot = "legs"
-		"Feet":
-			strPlayerSlot = "feet"
-		"Ring":
-			strPlayerSlot = "ring"
-		"Trinke":
-			strPlayerSlot = "trinket"
-		"Main Hand":
-			strPlayerSlot = "mainhand"
-		"Off Hand":
-			strPlayerSlot = "offhand"
-	
+	var strPlayerSlot : String = _get_equipment_slot_name(strSlot)
 	
 	match action:
 		"Unequip":
@@ -218,6 +198,30 @@ func _handle_equipment_action(action: String, strSlot : String) -> void:
 	_update_defense_label()
 	_update_item_description("")
 
+func _get_equipment_slot_name( menu_name : String) -> String:
+	var retval :String = ""
+	
+	match menu_name:
+		"Head":
+			retval = "head"
+		"Neck":
+			retval = "neck"
+		"Chest":
+			retval = "chest"
+		"Legs":
+			retval = "legs"
+		"Feet":
+			retval = "feet"
+		"Ring":
+			retval = "ring"
+		"Trinke":
+			retval = "trinket"
+		"Main Hand":
+			retval = "mainhand"
+		"Off Hand":
+			retval = "offhand"
+	
+	return retval
 
 func _on_btn_close_pressed() -> void:
 	sfx_button.play()
