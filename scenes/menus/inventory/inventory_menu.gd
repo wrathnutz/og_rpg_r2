@@ -172,7 +172,7 @@ func _update_equipment_slots() -> void:
 	slot_ring.set_inv_data(GameState.player_equipment.get("ring"))
 
 func _update_defense_label() -> void :
-	lbl_defense.text = "Defense: " + str(GameState.player_defense)
+	lbl_defense.text = "Defense: " + str(snapped(GameState.player_defense, 0.1))
 
 func _init_lights() -> void:
 	op_light.clear()
