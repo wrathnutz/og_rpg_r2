@@ -52,8 +52,12 @@ extends Node
 @export var player_inventory : Array[InventoryData] = []
 
 @export_category("Inventory")
-var current_light : int = -1
-@export var player_lights : Array[String] = []
+@export var gold : int = 0
+@export var keys : int = 0
+@export var current_light : String = "none"
+@export var player_lights : Dictionary [String, Resource]= {
+	"none" : null
+}
 
 @export_category("Equipment")
 @export var player_equipment: Dictionary = {
@@ -72,6 +76,93 @@ var current_light : int = -1
 var player_defense : float = 0.0
 var player_attack : float = 0.0
 
+@export_category("Current Scene")
+@export var current_scene : String = ""
+@export var spawn_location : String = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+
+func serialize() -> Dictionary:
+	var retval : Dictionary = {
+		#Serialize the version info
+		"version_major" : version_major,
+		"version_minor" : version_minor,
+		"version_build" : version_build,
+		#Serialize player info
+		"player_name" : player_name,
+		"player_title" : player_title,
+		"player_class" : player_class,
+		"player_level" : player_level,
+		"player_xp" : player_xp,
+		"player_max_hp" : player_max_hp,
+		"player_hp" : player_hp,
+		"player_max_mp" : player_max_mp,
+		"player_mp" : player_mp,
+		#Serialize player stats
+		"strength" : strength,
+		"strength_modifier" : strength_modifier,
+		"strength_gear_modifier" : strength_gear_modifier,
+		"dexterity" : dexterity,
+		"dexterity_modifier" : dexterity_modifier,
+		"dexterity_gear_modifier" : dexterity_gear_modifier,
+		"constitution" : constitution,
+		"constitution_modifier" : constitution_modifier,
+		"constitution_gear_modifier" : constitution_gear_modifier,
+		"intelligence" : intelligence,
+		"intelligence_modifier" : intelligence_modifier,
+		"intelligence_gear_modifier" : intelligence_gear_modifier,
+		"wisdom" : wisdom,
+		"wisdom_modifier" : wisdom_modifier,
+		"wisdom_gear_modifier" : wisdom_gear_modifier,
+		"charisma" : charisma,
+		"charisma_modifier" : charisma_modifier,
+		"charisma_gear_modifier" : charisma_gear_modifier,
+		
+		#Serialize current scene uuid
+		"current_scene" : current_scene,
+		"spawn_location" : spawn_location
+	}
+	
+	return retval
+	
+func deserialize(save_data : Dictionary) -> void:
+	#Dont Deserialize version info. Use to to handle different save files
+	var _file_version_major = save_data.get("version_major")
+	var _file_version_minor = save_data.get("version_minor")
+	var _file_version_build = save_data.get("version_build")
+	
+	#Deserialize player info
+	player_name = save_data.get("player_name")
+	player_title = save_data.get("player_title")
+	player_class = save_data.get("player_class")
+	player_level = save_data.get("player_level")
+	player_xp = save_data.get("player_xp")
+	player_max_hp = save_data.get("player_max_hp")
+	player_hp = save_data.get("player_hp")
+	player_max_mp = save_data.get("player_max_mp")
+	player_mp = save_data.get("player_mp")
+	#Deserialize player stats
+	strength = save_data.get("strength")
+	strength_modifier = save_data.get("strength_modifier")
+	strength_gear_modifier = save_data.get("strength_gear_modifier")
+	dexterity = save_data.get("dexterity")
+	dexterity_modifier = save_data.get("dexterity_modifier")
+	dexterity_gear_modifier = save_data.get("dexterity_gear_modifier")
+	constitution = save_data.get("constitution")
+	constitution_modifier = save_data.get("constitution_modifier")
+	constitution_gear_modifier = save_data.get("constitution_gear_modifier")
+	intelligence = save_data.get("intelligence")
+	intelligence_modifier = save_data.get("intelligence_modifier")
+	intelligence_gear_modifier = save_data.get("intelligence_gear_modifier")
+	wisdom = save_data.get("wisdom")
+	wisdom_modifier = save_data.get("wisdom_modifier")
+	wisdom_gear_modifier = save_data.get("wisdom_gear_modifier")
+	charisma = save_data.get("charisma")
+	charisma_modifier = save_data.get("charisma_modifier")
+	charisma_gear_modifier = save_data.get("charisma_gear_modifier")
+	
+	#Serialize current scene uuid
+	current_scene = save_data.get("current_scene")
+	spawn_location = save_data.get("spawn_location")

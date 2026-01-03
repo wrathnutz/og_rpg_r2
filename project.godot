@@ -24,6 +24,7 @@ GameState="*res://scenes/entities/systems/game_state/game_state.tscn"
 scene_manager="*res://scenes/entities/systems/scene_manager/scene_manager.tscn"
 AudioManager="*res://scenes/entities/systems/audio_manager/audio_manager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SaveManager="*res://scenes/entities/systems/save_manager/save_manager.gd"
 
 [display]
 

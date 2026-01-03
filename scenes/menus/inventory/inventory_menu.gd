@@ -179,7 +179,8 @@ func _init_lights() -> void:
 	for light in GameState.player_lights:
 		op_light.add_item(light)
 	if GameState.player_lights.size() > 0:
-		op_light.select(GameState.current_light)
+		#op_light.select(GameState.current_light)
+		pass
 
 func _handle_equipment_action(action: String, strSlot : String) -> void:
 	
