@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d1nhb4ahmupfy"]
+[gd_scene load_steps=37 format=4 uid="uid://d1nhb4ahmupfy"]
 
 [ext_resource type="Texture2D" uid="uid://dspsl7yg3jpgw" path="res://assets/sprites/old dungeon sheet.png" id="1_fab0l"]
 [ext_resource type="Script" uid="uid://smolaidunca8" path="res://scenes/maps/dungeons/intro_temple/intro_dungeon.gd" id="1_imjs4"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://byp8fub1jws" path="res://scenes/entities/objects/torch/torch.tscn" id="4_kwrvf"]
 [ext_resource type="PackedScene" uid="uid://bw327barbiwsr" path="res://scenes/entities/objects/water_reflect/water_reflect.tscn" id="5_it7bu"]
 [ext_resource type="PackedScene" uid="uid://7hdkpaekg7n2" path="res://scenes/entities/objects/door_wooden_ns/door_wooden_ns.tscn" id="6_mojfe"]
+[ext_resource type="Resource" uid="uid://do41yvl0u22ra" path="res://assets/resources/items/consumables/health_potions/small_health_potion.tres" id="7_vnqdl"]
+[ext_resource type="Resource" uid="uid://ck1blahlurexh" path="res://assets/resources/items/weapons/dagger.tres" id="8_c5whh"]
 [ext_resource type="PackedScene" uid="uid://bcdpchlywxom6" path="res://scenes/entities/systems/interactable/interactable.tscn" id="10_fg465"]
 [ext_resource type="AudioStream" uid="uid://dwtjq8ne5vhjf" path="res://assets/sounds/Ancient_Game_Wooden_Crate_Impact_2.ogg" id="11_fg465"]
 [ext_resource type="PackedScene" uid="uid://dpsanmb44nvi5" path="res://scenes/entities/systems/player_map_menus_component/player_map_menus_component.tscn" id="12_tso7n"]
@@ -237,9 +239,11 @@ current_state = 3
 
 [node name="ChestWooden" parent="." instance=ExtResource("4_1jxk2")]
 position = Vector2(-674, -311)
+loot = ExtResource("7_vnqdl")
 
 [node name="ChestWooden2" parent="." instance=ExtResource("4_1jxk2")]
 position = Vector2(657, -337)
+loot = ExtResource("8_c5whh")
 
 [node name="PlayerScene" parent="." instance=ExtResource("2_kwrvf")]
 y_sort_enabled = true
