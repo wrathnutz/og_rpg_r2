@@ -30,8 +30,10 @@ func save_game()->void:
 		print("Cannot write to save file")
 
 func load_game() -> void:
-	
-	pass
+	var fname : String = "save" + str(save_slot) + ".sav"
+	var save_file = FileAccess.open("user://og_rpg//" + fname, FileAccess.READ)
+	GameState.deserialize(JSON.parse_string(save_file.get_line()))
+	scene_manager.change_scene_fade(GameState.current_scene)
 	
 func _check_dir() -> void:
 	#make sure the directory exists

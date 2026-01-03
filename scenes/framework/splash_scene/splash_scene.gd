@@ -21,4 +21,4 @@ func set_dissolve(amount: float):
 	text.material.set_shader_parameter("percentage", amount)
 
 func _on_change_timer_timeout() -> void:
-	scene_manager.change_scene_fade("res://scenes/framework/title_scene/title_scene.tscn")
+	scene_manager.change_scene_fade("uid://f8evf6ueyum2")

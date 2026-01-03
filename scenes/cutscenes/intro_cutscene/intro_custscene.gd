@@ -69,5 +69,6 @@ func final_dioalogue() -> void:
 	end_scene()
 	
 func end_scene() -> void:
-	scene_manager.change_scene_fade("res://scenes/maps/dungeons/intro_temple/intro_dungeon.tscn")
+	#load the intro dungeon
+	scene_manager.change_scene_fade("uid://d1nhb4ahmupfy")
 	pass
