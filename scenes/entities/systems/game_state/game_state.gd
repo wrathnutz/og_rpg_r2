@@ -49,18 +49,16 @@ extends Node
 
 @export_category("Inventory")
 @export var max_inventory : int = 8
-@export var player_inventory : Array[InventoryData] = []
+@export var player_inventory : Array[Resource] = []
 
 @export_category("Inventory")
 @export var gold : int = 0
 @export var keys : int = 0
-@export var current_light : String = "none"
-@export var player_lights : Dictionary [String, Resource]= {
-	"none" : null
-}
+@export var current_light : int = 0
+@export var player_lights : Array[String] = ["none"]
 
 @export_category("Equipment")
-@export var player_equipment: Dictionary = {
+@export var player_equipment: Dictionary[String, Resource] = {
 	"head" : null,
 	"neck" : null,
 	"chest" : preload("uid://bx4rvmfp1d6ln"),
@@ -120,6 +118,21 @@ func serialize() -> Dictionary:
 		"charisma_modifier" : charisma_modifier,
 		"charisma_gear_modifier" : charisma_gear_modifier,
 		
+		#Titles
+		"unlocked_titles" : unlocked_titles,
+
+		#inventory
+		"max_inventory" : max_inventory,
+		"player_inventory" : _pack_player_inventory(),
+		
+		"gold" : gold,
+		"keys" : keys,
+		"current_light" : current_light,
+		"player_lights" : player_lights,
+		
+		#Equipment
+		"player_equipment ": _pack_player_equipment(),
+		
 		#Serialize current scene uuid
 		"current_scene" : current_scene,
 		"spawn_location" : spawn_location
@@ -166,3 +179,38 @@ func deserialize(save_data : Dictionary) -> void:
 	#Serialize current scene uuid
 	current_scene = save_data.get("current_scene")
 	spawn_location = save_data.get("spawn_location")
+
+func _pack_player_equipment() -> Dictionary:
+	var retval : Dictionary[String,String]
+	retval["head"] = _get_scene_uid(player_equipment.get("head"))
+	retval["neck"] = _get_scene_uid(player_equipment.get("neck"))
+	retval["chest"] = _get_scene_uid(player_equipment.get("chest"))
+	retval["waist"] = _get_scene_uid(player_equipment.get("waist"))
+	retval["legs"] = _get_scene_uid(player_equipment.get("legs"))
+	retval["feet"] = _get_scene_uid(player_equipment.get("feet"))
+	retval["offhand"] = _get_scene_uid(player_equipment.get("offhand"))
+	retval["mainhand"] = _get_scene_uid(player_equipment.get("mainhand"))
+	retval["ring"] = _get_scene_uid(player_equipment.get("ring"))
+	retval["trinket"] = _get_scene_uid(player_equipment.get("trinket"))
+	return retval
+
+func _pack_player_inventory() -> Array:
+	var retval : Array
+	
+	for item in player_inventory:
+		retval.append(_get_scene_uid(item))
+		
+		#retval.append(item.get_path())
+		print("get_path(): " + item.get_path())
+		print("resource_path: " + item.resource_path)
+		print("resource_name: " + item.resource_name)
+		#print("to_string(): " + item.get_id_for_path())
+		print("to_string(): " + item.to_string())
+	return retval
+
+
+func _get_scene_uid(scn) -> String:
+	var retval = ""
+	if scn != null:
+		retval = ResourceUID.id_to_text(ResourceLoader.get_resource_uid(scn.get_path()))
+	return retval

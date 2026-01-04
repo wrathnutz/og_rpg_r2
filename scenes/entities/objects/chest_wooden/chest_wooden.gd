@@ -22,7 +22,7 @@ func try_open() -> void:
 		var dlg_resource = DialogueManager.create_resource_from_text("This chest is locked.")
 		DialogueManager.show_example_dialogue_balloon(dlg_resource)
 	else:
-		#Need to handle inventory beiong full
+		#Need to handle inventory being full
 		open()
 	pass
 
@@ -40,5 +40,5 @@ func open() -> void:
 		
 	var dlg_resource = DialogueManager.create_resource_from_text(msg_loot)
 	DialogueManager.show_example_dialogue_balloon(dlg_resource)
-	GameState.player_inventory.append(loot.duplicate())
+	GameUtilities.AddtoInventory(loot)
 	

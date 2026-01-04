@@ -1,7 +1,8 @@
 extends Node2D
 
 var creation_menu : PackedScene = preload("uid://cglvoh5mvwsml")
-var settings_menu : PackedScene = preload("uid://dunhuxrgyvtne")
+#var settings_menu : PackedScene = preload("uid://dunhuxrgyvtne")
+@onready var menus_component: Node2D = $PlayerMapMenusComponent
 
 var pool_dialogue = preload("res://scenes/maps/dungeons/intro_temple/pool_start_dialogue.dialogue")
 var door_dialogue = preload("res://scenes/maps/dungeons/intro_temple/pool_end_dialogue.dialogue")
@@ -22,6 +23,8 @@ func _ready() -> void:
 func start_player_creation() -> void:
 	reflection_pool_trigger.is_interactable = false
 	
+	menus_component.allow_inputs(false)
+	
 	DialogueManager.show_example_dialogue_balloon(pool_dialogue)
 	await DialogueManager.dialogue_ended
 	
@@ -34,6 +37,7 @@ func start_player_creation() -> void:
 func end_player_creation() -> void:
 	DialogueManager.show_example_dialogue_balloon(door_dialogue)
 	await DialogueManager.dialogue_ended
+	menus_component.allow_inputs(true)
 	sfx_boom.play()
 	camera_2d.add_trauma(0.5)
 	magic_door.current_state = GameUtilities.door_state.CLOSED
