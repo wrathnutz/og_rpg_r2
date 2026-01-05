@@ -131,7 +131,7 @@ func serialize() -> Dictionary:
 		"player_lights" : player_lights,
 		
 		#Equipment
-		"player_equipment ": _pack_player_equipment(),
+		"player_equipment": _pack_player_equipment(),
 		
 		#Serialize current scene uuid
 		"current_scene" : current_scene,
@@ -176,12 +176,27 @@ func deserialize(save_data : Dictionary) -> void:
 	charisma_modifier = save_data.get("charisma_modifier")
 	charisma_gear_modifier = save_data.get("charisma_gear_modifier")
 	
+	#Deserialize Titles
+	unlocked_titles = save_data.get("unlocked_titles")
+	#Deserialize inventory
+	max_inventory = save_data.get("max_inventory")
+	
+	_unpack_player_inventory(save_data.get("player_inventory"))
+	
+	gold = save_data.get("gold")
+	keys = save_data.get("keys")
+	current_light = save_data.get("current_light")
+	player_lights = save_data.get("player_lights")
+	
+	#Deserialize equipment
+	_unpack_player_equipment(save_data.get("player_equipment"))
+	
 	#Serialize current scene uuid
 	current_scene = save_data.get("current_scene")
 	spawn_location = save_data.get("spawn_location")
 
 func _pack_player_equipment() -> Dictionary:
-	var retval : Dictionary[String,String]
+	var retval : Dictionary[String, String]
 	retval["head"] = _get_scene_uid(player_equipment.get("head"))
 	retval["neck"] = _get_scene_uid(player_equipment.get("neck"))
 	retval["chest"] = _get_scene_uid(player_equipment.get("chest"))
@@ -193,6 +208,19 @@ func _pack_player_equipment() -> Dictionary:
 	retval["ring"] = _get_scene_uid(player_equipment.get("ring"))
 	retval["trinket"] = _get_scene_uid(player_equipment.get("trinket"))
 	return retval
+
+func _unpack_player_equipment(save_data : Dictionary[String, String]) -> void:
+	player_equipment["head"] = load(save_data.get("head"))
+	player_equipment["neck"] = load(save_data.get("neck"))
+	player_equipment["chest"] = load(save_data.get("chest"))
+	player_equipment["waist"] = load(save_data.get("waist"))
+	player_equipment["legs"] = load(save_data.get("legs"))
+	player_equipment["feet"] = load(save_data.get("feet"))
+	player_equipment["offhand"] = load(save_data.get("offhand"))
+	player_equipment["mainhand"] = load(save_data.get("mainhand"))
+	player_equipment["ring"] = load(save_data.get("ring"))
+	player_equipment["trinket"] = load(save_data.get("trinket"))
+	pass
 
 func _pack_player_inventory() -> Array:
 	var retval : Array
@@ -208,6 +236,11 @@ func _pack_player_inventory() -> Array:
 		print("to_string(): " + item.to_string())
 	return retval
 
+func _unpack_player_inventory(save_data : Array[String]) -> void:
+	#make sure the invetory is empty before we fill it up
+	player_inventory.clear()
+	for item in save_data:
+		player_inventory.append(load(item))
 
 func _get_scene_uid(scn) -> String:
 	var retval = ""
