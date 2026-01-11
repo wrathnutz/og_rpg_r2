@@ -44,7 +44,7 @@ extends Node
 
 @export_category("Titles")
 
-@export var unlocked_titles : Dictionary[String,String] = { "none": ""}
+@export var unlocked_titles : Dictionary = { "none": ""}
 @export var titles_list : Dictionary[String,String] = {}
 
 @export_category("Inventory")
@@ -55,7 +55,7 @@ extends Node
 @export var gold : int = 0
 @export var keys : int = 0
 @export var current_light : int = 0
-@export var player_lights : Array[String] = ["none"]
+@export var player_lights : Array = ["none"]
 
 @export_category("Equipment")
 @export var player_equipment: Dictionary[String, Resource] = {
@@ -213,7 +213,7 @@ func _pack_player_equipment() -> Dictionary:
 	retval["trinket"] = _get_scene_uid(player_equipment.get("trinket"))
 	return retval
 
-func _unpack_player_equipment(save_data : Dictionary[String, String]) -> void:
+func _unpack_player_equipment(save_data : Dictionary) -> void:
 	player_equipment["head"] = load(save_data.get("head"))
 	player_equipment["neck"] = load(save_data.get("neck"))
 	player_equipment["chest"] = load(save_data.get("chest"))
@@ -240,7 +240,7 @@ func _pack_player_inventory() -> Array:
 		print("to_string(): " + item.to_string())
 	return retval
 
-func _unpack_player_inventory(save_data : Array[String]) -> void:
+func _unpack_player_inventory(save_data : Array) -> void:
 	#make sure the invetory is empty before we fill it up
 	player_inventory.clear()
 	for item in save_data:

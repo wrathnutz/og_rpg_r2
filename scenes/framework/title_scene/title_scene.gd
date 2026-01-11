@@ -1,8 +1,13 @@
 extends Node2D
 
 @onready var btnNew : Button    = $props/VBoxContainer/btnNew
+@onready var canvas_layer_gui: CanvasLayer = $CanvasLayerGUI
+
+@onready var load_game_scene : PackedScene = preload("uid://s7ge858a5toj")
+
 @onready var btn_sound : AudioStreamPlayer = $sounds/Button4
 @onready var btn_mouseover : AudioStreamPlayer = $sounds/ButtonMouseover
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	btnNew.grab_focus()
@@ -38,3 +43,13 @@ func _on_btn_settings_focus_entered() -> void:
 
 func _on_btn_credits_focus_entered() -> void:
 	btn_mouseover.play()
+
+
+func _on_btn_continue_pressed() -> void:
+	btn_sound.play()
+	await btn_sound.finished
+	#open the load game scene
+	var load_scene_instance = load_game_scene.instantiate()
+	canvas_layer_gui.add_child(load_scene_instance)
+	await load_scene_instance.tree_exited
+	btnNew.grab_focus()
