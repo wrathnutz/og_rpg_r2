@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgs554aupd1xs"]
+
+[ext_resource type="Script" uid="uid://dxg01w57idyx0" path="res://scenes/menus/new_game/new_game.gd" id="1_t8qow"]
+[ext_resource type="Theme" uid="uid://qh5hw5je4dm8" path="res://assets/themes/menu1_theme.tres" id="2_wd67d"]
+[ext_resource type="AudioStream" uid="uid://bx1hw08fg02ow" path="res://assets/sounds/Button_4.ogg" id="3_6ttle"]
+[ext_resource type="AudioStream" uid="uid://cnje2cyebrnvt" path="res://assets/sounds/Button_Mouseover.ogg" id="4_6gmhk"]
+
+[node name="NewGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8qow")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wd67d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelHeader" type="Panel" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/PanelHeader"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[fade start=0 length=19]
+New Game
+[/fade]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelSlots" type="Panel" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PanelSlots"]
+layout_mode = 0
+offset_left = 12.5
+offset_right = 781.5
+offset_bottom = 380.0
+theme_override_constants/separation = 9
+
+[node name="HBoxContainer_Slot1" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer"]
+layout_mode = 2
+
+[node name="btnSlot1" type="Button" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot1"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Slot 1"
+
+[node name="lblSlot1" type="RichTextLabel" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot1"]
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+bbcode_enabled = true
+text = "[fade start=0 length=100]
+Name: Larry
+Level: 999
+Last Saved: January 01, 2026
+[/fade]"
+
+[node name="HBoxContainer_Slot2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer"]
+layout_mode = 2
+
+[node name="btnSlot2" type="Button" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Slot 2"
+
+[node name="lblSlot2" type="RichTextLabel" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot2"]
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+bbcode_enabled = true
+text = "[fade start=0 length=100]
+Name: Darryl
+Level: 999
+Last Saved: January 01, 2026
+[/fade]"
+
+[node name="HBoxContainer_Slot3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer"]
+layout_mode = 2
+
+[node name="btnSlot3" type="Button" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Slot 3"
+
+[node name="lblSlot3" type="RichTextLabel" parent="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot3"]
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+bbcode_enabled = true
+text = "[fade start=0 length=100]
+Name: Other Brother Darryl
+Level: 999
+Last Saved: January 01, 2026
+[/fade]"
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btnBack" type="Button" parent="PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 34.0
+offset_right = 775.0
+offset_bottom = 75.0
+text = "Back"
+
+[node name="Button4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ttle")
+
+[node name="ButtonMouseover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6gmhk")
+
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot1/btnSlot1" to="." method="_on_btn_slot_1_focus_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot1/btnSlot1" to="." method="_on_btn_slot_1_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot2/btnSlot2" to="." method="_on_btn_slot_2_focus_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot2/btnSlot2" to="." method="_on_btn_slot_2_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot3/btnSlot3" to="." method="_on_btn_slot_3_focus_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PanelSlots/VBoxContainer/HBoxContainer_Slot3/btnSlot3" to="." method="_on_btn_slot_3_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/Panel/btnBack" to="." method="_on_btn_back_focus_entered"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Panel/btnBack" to="." method="_on_btn_back_pressed"]

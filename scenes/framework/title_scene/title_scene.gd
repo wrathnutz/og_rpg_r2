@@ -4,6 +4,7 @@ extends Node2D
 @onready var canvas_layer_gui: CanvasLayer = $CanvasLayerGUI
 
 @onready var load_game_scene : PackedScene = preload("uid://s7ge858a5toj")
+@onready var new_game_scene : PackedScene = preload("uid://bgs554aupd1xs")
 
 @onready var btn_sound : AudioStreamPlayer = $sounds/Button4
 @onready var btn_mouseover : AudioStreamPlayer = $sounds/ButtonMouseover
@@ -15,8 +16,10 @@ func _ready() -> void:
 func _on_btn_new_pressed() -> void:
 	btn_sound.play()
 	await btn_sound.finished
-	#move to the intro cutscene
-	scene_manager.change_scene_fade("uid://d0uqbc8k65vw")
+	#open the load game scene
+	var new_scene_instance = new_game_scene.instantiate()
+	canvas_layer_gui.add_child(new_scene_instance)
+
 
 
 func _on_btn_quit_pressed() -> void:
@@ -51,5 +54,5 @@ func _on_btn_continue_pressed() -> void:
 	#open the load game scene
 	var load_scene_instance = load_game_scene.instantiate()
 	canvas_layer_gui.add_child(load_scene_instance)
-	await load_scene_instance.tree_exited
-	btnNew.grab_focus()
+	
+	

@@ -18,27 +18,27 @@ extends Node
 @export var player_mp : int = 4
 @export_group("Stats")
 @export_subgroup("Strength")
-@export var strength : int = 12
+@export var strength : int = 10
 @export var strength_modifier : int = 0
 @export var strength_gear_modifier : int = 0
 @export_subgroup("Dexterity")
-@export var dexterity : int = 12
+@export var dexterity : int = 10
 @export var dexterity_modifier : int = 0
 @export var dexterity_gear_modifier : int = 0
 @export_subgroup("Constitution")
-@export var constitution : int = 12
+@export var constitution : int = 10
 @export var constitution_modifier : int = 0
 @export var constitution_gear_modifier : int = 0
 @export_subgroup("Intelligence")
-@export var intelligence : int = 12
+@export var intelligence : int = 10
 @export var intelligence_modifier : int = 0
 @export var intelligence_gear_modifier : int = 0
 @export_subgroup("Wisdom")
-@export var wisdom : int = 12
+@export var wisdom : int = 10
 @export var wisdom_modifier : int = 0
 @export var wisdom_gear_modifier : int = 0
 @export_subgroup("Charisma")
-@export var charisma : int = 12
+@export var charisma : int = 10
 @export var charisma_modifier : int = 0
 @export var charisma_gear_modifier : int = 0
 
@@ -82,6 +82,78 @@ var player_attack : float = 0.0
 func _ready() -> void:
 	pass # Replace with function body.
 
+#Function to initialize all data back to new
+func reset_state()->void:
+	
+	#Reset player data
+	player_name = ""
+	player_title = "none"
+	player_class = ""
+	player_level = 1
+	player_xp = 0
+	player_max_hp = 10
+	player_hp = 10
+	player_max_mp = 4
+	player_mp = 4
+	
+	#Reset player stats
+	strength = 10
+	strength_modifier = 0
+	strength_gear_modifier = 0
+
+	dexterity = 10
+	dexterity_modifier = 0
+	dexterity_gear_modifier = 0
+
+	constitution = 10
+	constitution_modifier = 0
+	constitution_gear_modifier = 0
+
+	intelligence = 10
+	intelligence_modifier = 0
+	intelligence_gear_modifier = 0
+
+	wisdom = 10
+	wisdom_modifier = 0
+	wisdom_gear_modifier = 0
+
+	charisma = 10
+	charisma_modifier = 0
+	charisma_gear_modifier = 0
+	
+	#Reset titles
+	unlocked_titles = { "none": ""}
+	titles_list = {}
+	
+	#Reset inventory
+	max_inventory = 8
+	player_inventory = []
+
+	gold = 0
+	keys = 0
+	current_light = 0
+	player_lights = ["none"]
+
+	#Resst player equipment
+	player_equipment = {
+		"head" : null,
+		"neck" : null,
+		"chest" : preload("uid://bx4rvmfp1d6ln"),
+		"waist" : null,
+		"legs" : preload("uid://ddc70e5mljxq1"),
+		"feet" : preload("uid://c70rigtcliwqf"),
+		"offhand" : null,
+		"mainhand" : preload("uid://i3f0hd8tsdqw"),
+		"ring" : null,
+		"trinket" : null
+	}
+
+	player_defense = 0.0
+	player_attack = 0.0
+
+	current_scene = ""
+	spawn_location = ""
+	
 func serialize() -> Dictionary:
 	var retval : Dictionary = {
 		#Serialize the version info
@@ -214,17 +286,55 @@ func _pack_player_equipment() -> Dictionary:
 	return retval
 
 func _unpack_player_equipment(save_data : Dictionary) -> void:
-	player_equipment["head"] = load(save_data.get("head"))
-	player_equipment["neck"] = load(save_data.get("neck"))
-	player_equipment["chest"] = load(save_data.get("chest"))
-	player_equipment["waist"] = load(save_data.get("waist"))
-	player_equipment["legs"] = load(save_data.get("legs"))
-	player_equipment["feet"] = load(save_data.get("feet"))
-	player_equipment["offhand"] = load(save_data.get("offhand"))
-	player_equipment["mainhand"] = load(save_data.get("mainhand"))
-	player_equipment["ring"] = load(save_data.get("ring"))
-	player_equipment["trinket"] = load(save_data.get("trinket"))
-	pass
+	if save_data.get("head") == "":
+		player_equipment["head"] = null
+	else:
+		player_equipment["head"] = load(save_data.get("head"))
+	
+	if save_data.get("neck") == "":
+		player_equipment["neck"] = null
+	else:
+		player_equipment["neck"] = load(save_data.get("neck"))
+	
+	if save_data.get("chest") == "":
+		player_equipment["chest"] = null
+	else:
+		player_equipment["chest"] = load(save_data.get("chest"))
+	
+	if save_data.get("waist") == "":
+		player_equipment["waist"] = null
+	else:
+		player_equipment["waist"] = load(save_data.get("waist"))
+	
+	if save_data.get("legs") == "":
+		player_equipment["legs"] = null
+	else:
+		player_equipment["legs"] = load(save_data.get("legs"))
+	
+	if save_data.get("feet") == "":
+		player_equipment["feet"] = null
+	else:
+		player_equipment["feet"] = load(save_data.get("feet"))
+	
+	if save_data.get("offhand") == "":
+		player_equipment["offhand"] = null
+	else:
+		player_equipment["offhand"] = load(save_data.get("offhand"))
+	
+	if save_data.get("mainhand") == "":
+		player_equipment["mainhand"] = null
+	else:
+		player_equipment["mainhand"] = load(save_data.get("mainhand"))
+	
+	if save_data.get("ring") == "":
+		player_equipment["ring"] = null
+	else:
+		player_equipment["ring"] = load(save_data.get("ring"))
+	
+	if save_data.get("trinket") == "":
+		player_equipment["trinket"] = null
+	else:
+		player_equipment["trinket"] = load(save_data.get("trinket"))
 
 func _pack_player_inventory() -> Array:
 	var retval : Array

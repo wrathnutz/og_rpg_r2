@@ -10,10 +10,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_F5:
-			create_new_game_save()
+			save_game()
 		pass
 
 func create_new_game_save() -> void:
+	#reset the game state
+	GameState.reset_state()
 	#point to the intro cutscene
 	GameState.current_scene =  "uid://d0uqbc8k65vw"
 	GameState.spawn_location = ""
