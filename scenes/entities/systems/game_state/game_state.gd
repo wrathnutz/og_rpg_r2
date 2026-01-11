@@ -88,6 +88,10 @@ func serialize() -> Dictionary:
 		"version_major" : version_major,
 		"version_minor" : version_minor,
 		"version_build" : version_build,
+		
+		#Serialize the date time
+		"save_date" : Time.get_datetime_string_from_system(false, true),
+		
 		#Serialize player info
 		"player_name" : player_name,
 		"player_title" : player_title,

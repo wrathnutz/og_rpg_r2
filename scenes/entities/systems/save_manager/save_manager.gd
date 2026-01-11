@@ -34,7 +34,20 @@ func load_game() -> void:
 	var save_file = FileAccess.open("user://og_rpg//" + fname, FileAccess.READ)
 	GameState.deserialize(JSON.parse_string(save_file.get_line()))
 	scene_manager.change_scene_fade(GameState.current_scene)
+
+func load_game_file() -> Dictionary:
+	var fname : String = "save" + str(save_slot) + ".sav"
+	var retval : Dictionary = {}
+	#Make sure the directory exists
+	_check_dir()
 	
+	#See if the file exists
+	if FileAccess.file_exists("user://og_rpg//" + fname):
+		var save_file = FileAccess.open("user://og_rpg//" + fname, FileAccess.READ)
+		retval = JSON.parse_string(save_file.get_line())
+	
+	return retval
+
 func _check_dir() -> void:
 	#make sure the directory exists
 	var dir = DirAccess.open("user://")
