@@ -341,13 +341,6 @@ func _pack_player_inventory() -> Array:
 	
 	for item in player_inventory:
 		retval.append(_get_scene_uid(item))
-		
-		#retval.append(item.get_path())
-		print("get_path(): " + item.get_path())
-		print("resource_path: " + item.resource_path)
-		print("resource_name: " + item.resource_name)
-		#print("to_string(): " + item.get_id_for_path())
-		print("to_string(): " + item.to_string())
 	return retval
 
 func _unpack_player_inventory(save_data : Array) -> void:
