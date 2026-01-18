@@ -24,7 +24,6 @@ func try_open() -> void:
 	else:
 		#Need to handle inventory being full
 		open()
-	pass
 
 func open() -> void:
 	interactable.is_interactable = false
