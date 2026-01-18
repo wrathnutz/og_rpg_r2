@@ -4,10 +4,33 @@ const SPEED = 100.0
 var _allow_movement : bool = true
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var fire_light: Node2D = $FireLight
+
 
 func _ready() -> void:
 	SignalBus.toggle_player_move.connect(allow_movement_inputs)
-	
+	SignalBus.player_activate_light.connect(_activate_light)
+
+func _process(_delta: float) -> void:
+	if _allow_movement:
+		if Input.is_action_just_pressed("toggle_light"):
+			match GameState.player_lights[GameState.current_light]:
+				"none":
+					pass
+				"torch":
+					fire_light.visible =  not(fire_light.visible)
+				_:
+					pass
+
+func _activate_light()-> void:
+	match GameState.player_lights[GameState.current_light]:
+		"none":
+			pass
+		"torch":
+			fire_light.visible = true
+		_:
+			pass
+
 func allow_movement_inputs(allow : bool) -> void:
 	_allow_movement = allow
 	animated_sprite.play("idle")

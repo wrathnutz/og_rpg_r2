@@ -3,6 +3,7 @@ extends Node
 signal toggle_player_move
 signal player_enter_menu
 signal player_exit_menu
+signal player_activate_light
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +17,6 @@ func player_entered_menu() -> void:
 
 func player_exited_menu() -> void:
 	emit_signal("player_exit_menu")
+
+func activate_light()-> void:
+	emit_signal("player_activate_light")

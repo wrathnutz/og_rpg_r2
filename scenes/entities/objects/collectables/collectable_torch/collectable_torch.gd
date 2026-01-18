@@ -11,5 +11,12 @@ func _ready() -> void:
 func pickup() -> void:
 	DialogueManager.show_example_dialogue_balloon(pickup_dialogue)
 	await DialogueManager.dialogue_ended
-	
+	_try_add()
 	self.queue_free()
+
+func _try_add() ->void:
+	if GameState.player_lights.has("torch") == false:
+		#Player doesnt have torch, lets add it
+		GameState.player_lights.append("torch")
+		GameState.current_light = GameState.player_lights.find("torch")
+		SignalBus.activate_light()

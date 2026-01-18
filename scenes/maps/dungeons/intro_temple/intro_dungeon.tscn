@@ -273,7 +273,7 @@ position = Vector2(-112, 16)
 
 [node name="PlayerScene" parent="." instance=ExtResource("2_kwrvf")]
 y_sort_enabled = true
-position = Vector2(38, 16)
+position = Vector2(41, 16)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow_node") instance=ExtResource("3_it7bu")]
 follow_node = NodePath("../PlayerScene")
