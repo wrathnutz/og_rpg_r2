@@ -30,3 +30,4 @@ func _process(delta: float) -> void:
 
 func add_trauma(amount : float) -> void:
 	trauma = min(trauma + amount, 1.0)
+	Input.start_joy_vibration(0, 0.25, 0.25, 0.25)

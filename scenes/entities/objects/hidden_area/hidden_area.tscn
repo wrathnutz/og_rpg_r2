@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://0xmuopyinngw"]
+
+[ext_resource type="Script" uid="uid://sj7iep5y3jk2" path="res://scenes/entities/objects/hidden_area/hidden_area.gd" id="1_klams"]
+[ext_resource type="Texture2D" uid="uid://dspsl7yg3jpgw" path="res://assets/sprites/old dungeon sheet.png" id="2_pos4f"]
+[ext_resource type="PackedScene" uid="uid://bcdpchlywxom6" path="res://scenes/entities/systems/interactable/interactable.tscn" id="2_um4h4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro60a"]
+atlas = ExtResource("2_pos4f")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klams"]
+size = Vector2(12.25, 32.05342)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_um4h4"]
+polygon = PackedVector2Array(1, 32, 1, 0, 11.25, 0, 11.25, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45hc1"]
+radius = 13.0
+height = 32.03972
+
+[node name="HiddenArea" type="Node2D"]
+script = ExtResource("1_klams")
+hidden_offset_x = null
+hidden_offset_y = null
+success_lines = Array[String](["You find a hidden switch and a door opens.", "As look more closely at the area you find a secret room.", "You find a seam in the wall that you pull against and it opens a secret area."])
+fail_lines = Array[String](["You search but don't find anything out of the ordinary.", "You find nothing.", "You see a wall."])
+
+[node name="DoorTexture" type="TextureRect" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_ro60a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DoorTexture"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTexture/StaticBody2D"]
+position = Vector2(6.125, 16.02671)
+shape = SubResource("RectangleShape2D_klams")
+
+[node name="HiddenNode" type="Node2D" parent="DoorTexture"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DoorTexture"]
+occluder = SubResource("OccluderPolygon2D_um4h4")
+
+[node name="Interactable" parent="." instance=ExtResource("2_um4h4")]
+position = Vector2(6, 20)
+interact_name = "search"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0.2542572, -3.9664345)
+shape = SubResource("CapsuleShape2D_45hc1")

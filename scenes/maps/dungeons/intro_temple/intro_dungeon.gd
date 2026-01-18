@@ -40,5 +40,5 @@ func end_player_creation() -> void:
 	menus_component.allow_inputs(true)
 	sfx_boom.play()
 	camera_2d.add_trauma(0.5)
-	Input.start_joy_vibration(0, 0.25, 0.25, 0.25)
+	
 	magic_door.current_state = GameUtilities.door_state.CLOSED

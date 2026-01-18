@@ -15,22 +15,47 @@ enum weapon_slot {MAINHAND, OFFHAND}
 
 var rng = RandomNumberGenerator.new()
 
+func scaled_percentage(output_start : float, output_end : float, input_start: float, input_end: float, input : float) -> float:
+	var slope : float = (output_end - output_start) / (input_end - input_start)
+	return output_start + slope * (input - input_start)
+
 func get_proficiency_value(proficiency: proficiency_stat) -> int:
 	match proficiency:
 		proficiency_stat.STRENGTH:
-			return GameState.player_data.strength
+			return GameState.strength + GameState.strength_modifier + GameState.strength_gear_modifier
 		proficiency_stat.DEXTERITY:
-			return GameState.dexterity
+			return GameState.dexterity + GameState.dexterity_modifier + GameState.dexterity_gear_modifier
 		proficiency_stat.CONSTITUTION:
-			return GameState.constitution
+			return GameState.constitution + GameState.constitution + GameState.constitution_modifier
 		proficiency_stat.INTELLIGENCE:
-			return GameState.intelligence
+			return GameState.intelligence + GameState.intelligence_modifier + GameState.intelligence_gear_modifier
 		proficiency_stat.WISDOM:
-			return GameState.wisdom
+			return GameState.wisdom + GameState.wisdom_modifier + GameState.wisdom_gear_modifier
 		proficiency_stat.CHARISMA:
-			return GameState.charisma
+			return GameState.charisma + GameState.charisma_modifier + GameState.charisma_gear_modifier
 		_:
-			return GameState.player_data.strength
+			return GameState.player_data.strength + GameState.strength_modifier + GameState.strength_gear_modifier
+
+func proficiency_check(proficiency: proficiency_stat, threshold: int) -> bool:
+	var retval = false
+	#var total_proficiency = get_proficiency_value(proficiency)
+	var percentage_bonus : float = 0.0
+	var proficiency_value = get_proficiency_value(proficiency)
+	
+	# -25% at 1 and +25% at 20
+	if proficiency_value >= 1 and proficiency_value < 10:
+		percentage_bonus = scaled_percentage(-0.25, 0, 1.0, 10.0, float(proficiency_value))
+	else:
+		percentage_bonus = scaled_percentage(0, 0.25, 10.0, 20.0, float(proficiency_value))
+	
+	var dice_roll = rng.randi_range(1, 20) + int(percentage_bonus)
+	
+	if dice_roll >= threshold:
+		retval = true
+	
+	return retval
+
+
 
 func update_defense()->void:
 	GameState.player_defense = 0.0

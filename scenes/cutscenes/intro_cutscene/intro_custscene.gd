@@ -43,7 +43,6 @@ func _on_dialogue_start_timer_timeout() -> void:
 	DialogueManager.show_example_dialogue_balloon(dlg_first)
 
 func wake_player() -> void:
-	Input.start_joy_vibration(0, 0.25, 0.25, 0.25)
 	game_camera.add_trauma(0.5)
 	player_sprite.visible = true
 	player_sprite.play("spinning")
