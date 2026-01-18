@@ -19,4 +19,5 @@ func _try_add() ->void:
 		#Player doesnt have torch, lets add it
 		GameState.player_lights.append("torch")
 		GameState.current_light = GameState.player_lights.find("torch")
+		#Try to turn on the torch
 		SignalBus.activate_light()
